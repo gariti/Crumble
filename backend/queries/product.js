@@ -1,5 +1,20 @@
 const db = require('./db')
 
+//mongodb
+var mongoClient = require('mongodb').MongoClient
+
+mongoClient.connect('mongodb://localhost:27017/animals', function (err, client) {
+  if (err) throw err
+
+  var db = client.db('animals')
+
+  db.collection('mammals').find().toArray(function (err, result) {
+    if (err) throw err
+
+    console.log(result)
+  })
+})
+
 const getProducts = (request, response) => {
   db.pool.query('SELECT * FROM products ORDER BY id ASC', (error, results) => {
     if (error) {
