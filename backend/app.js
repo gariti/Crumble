@@ -1,31 +1,23 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const queriesUser = require('./queries/user')
-const queriesProduct = require('./queries/product')
-const app = express()
-const port = 3000
+const express = require('express');
+const bodyParser = require('body-parser');
+const product = require('./routes/product.route');
+const app = express();
 
-app.use(bodyParser.json())
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-)
+ //set additional environment (process.env.###) variables from config.env
+ //see 'dotenv' documentation for more info
+ require('dotenv').config({ path: './config.env' })
 
-app.get('/', (request, response) => {
-    response.json({ info: 'root API for Souk...nothing to see here' })
-  })
+// Set up mongoose/mongodb connection
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URL, { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.Promise = global.Promise;
+let db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-app.get('/users', queriesUser.getUsers)
-app.get('/users/:id', queriesUser.getUserById)
-app.post('/users', queriesUser.createUser)
-app.put('/users/:id', queriesUser.updateUser)
-app.delete('/users/:id', queriesUser.deleteUser)
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use('/products', product);
 
-app.get('/products', queriesProduct.getProducts)
-app.get('/products/:id', queriesProduct.getProductById)
-app.post('/products', queriesProduct.createProduct)
-app.put('/products/:id', queriesProduct.updateProduct)
-app.delete('/products/:id', queriesProduct.deleteProduct)
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(process.env.EXPRESS_PORT, () => {
+    console.log('Express is up and running on port ' + process.env.EXPRESS_PORT);
+});
