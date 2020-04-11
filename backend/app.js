@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const product = require('./routes/product.route');
 const app = express();
 
  //set additional environment (process.env.###) variables from config.env
@@ -16,7 +15,9 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/products', product);
+
+//add routes
+app.use('/products', require('./routes/product.route'));
 
 app.listen(process.env.EXPRESS_PORT, () => {
     console.log('Express is up and running on port ' + process.env.EXPRESS_PORT);
