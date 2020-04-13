@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 //add routes
 app.use('/products', require('./routes/product.route'));
+app.use('/users', require('./routes/user.route'));
 
 app.listen(process.env.EXPRESS_PORT, () => {
     console.log('Express is up and running on port ' + process.env.EXPRESS_PORT);
