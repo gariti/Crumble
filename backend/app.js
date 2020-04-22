@@ -5,7 +5,7 @@ const app = express();
 
 //set additional environment (process.env.###) variables from config.env
 //see 'dotenv' documentation for more info
-require("dotenv").config({ path: "./config.env${}" });
+require("dotenv").config({ path: "./config.env" });
 
 // Set up mongoose/mongodb connection
 const mongoose = require("mongoose");
