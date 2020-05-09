@@ -1,4 +1,8 @@
 import React from "react";
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import logo from "./logo.svg";
 import Dashboard from "./components/pages/Dashboard";
