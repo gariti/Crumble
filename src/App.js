@@ -6,14 +6,15 @@ import "firebase/firestore";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import logo from "./logo.svg";
 import Dashboard from "./components/pages/Dashboard";
-// import NewUserForm from "./components/NewUserForm";
+import NewUserForm from "./components/NewUserForm/NewUserForm";
+import AdditionalInfoForm from "./components/AdditionalInfoForm/AdditionalInfoForm";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Router>
+        <Router> 
           <Switch>
             {/* Root */}
             <Route exact path="/">
@@ -25,12 +26,12 @@ function App() {
             {/* New User */}
             <Route exact path="/newuser">
               {/* <NewUserForm /> */}
-              <div>WIP</div>
+              <NewUserForm/>
             </Route>
 
             {/* Additional info page */}
             <Route exact path="/additionalinfo/:id">
-              <div>WIP</div>
+              <AdditionalInfoForm />
             </Route>
 
             {/* Dashboard */}
