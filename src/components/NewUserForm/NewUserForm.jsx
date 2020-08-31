@@ -13,7 +13,7 @@ export default function NewUserForm() {
     var db = firebase.firestore();
 
     const userRef = db.collection("users")
-    .add({values})
+    .add({...values})
     .then(function(docRef) {
       console.log("Document created with ID: ", docRef.id);
       history.push(`/additionalinfo/${docRef.id}`);
@@ -72,7 +72,22 @@ export default function NewUserForm() {
         <p>Last name must be at least 2 characters</p>
       )}
 
+      <label>Email:</label>
+      <input name="email" ref={register({ 
+        required: true,
+        pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+       })}/>
+
+      {errors.email && errors.email.type === "required" && (
+        <p>Email address is required</p>
+      )}
+
+      {errors.email && errors.email.type === "pattern" && (
+        <p>Email address must be in correct format</p>
+      )}
+
       <input type="submit"/>
+
     </form>
   );
 }
