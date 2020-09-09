@@ -4,7 +4,7 @@ class Dashboard extends Component {
     render () {
         return (
             <div>
-                <h1>home page.</h1>
+                <h1>home page. Logged in as:</h1>
             </div>
         );
     }
