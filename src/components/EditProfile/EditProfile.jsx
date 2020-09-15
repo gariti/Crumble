@@ -3,14 +3,13 @@ import Button from "react-bootstrap/Button";
 // import Thumb from "./Thumb";
 // import { withRouter } from "react-router";
 // import ReactDOM from "react-dom";
-import { useForm }  from 'react-hook-form';
-import firebase from '../../Firebase/Firebase'
-import { useHistory, useRouteMatch, Link } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+import firebase from "../../Firebase/Firebase";
+import { useHistory, useRouteMatch, Link } from "react-router-dom";
 
-export default function AdditionalInfoForm() {
-  const { register, handleSubmit, errors } = useForm();
+export default function EditProfile() {
+  const { register, handleSubmit, errors, setError } = useForm();
   const history = useHistory();
-  const match = useRouteMatch()
 
   const updateUser = (values) => {
     var db = firebase.firestore();
@@ -25,19 +24,23 @@ export default function AdditionalInfoForm() {
 
     // console.log("Document updated: ", userRef.id);
     history.push(`/home/`);
-  }
+  };
 
   return (
-    <form className="Additional Information Form" onSubmit={handleSubmit(updateUser)}>
+    <form
+      className="Additional Information Form"
+      onSubmit={handleSubmit(updateUser)}
+    >
+      <h1>Join Your Community!</h1>
+      <h3>
+        Please provide a little bit more about yourself so others can get to
+        know you.
+      </h3>
 
-       <h1>Join Your Community!</h1>
-       <h3>
-         Please provide a little bit more about yourself so others can get to
-         know you.
-       </h3>
-
-       <label>First Name:</label>
-      <input name="firstName" ref={register({ 
+      <label>First Name:</label>
+      <input
+        name="firstName"
+        ref={register({
           required: true,
           minLength: 2,
           maxLength: 60,
@@ -57,7 +60,9 @@ export default function AdditionalInfoForm() {
       )}
 
       <label>Last Name:</label>
-      <input name="lastName" ref={register({ 
+      <input
+        name="lastName"
+        ref={register({
           required: true,
           minLength: 2,
           pattern: /^[A-Za-z]+$/i,
@@ -80,15 +85,16 @@ export default function AdditionalInfoForm() {
         <p>Last name must be at least 2 characters</p>
       )}
 
-
       <label>Bio:</label>
-      <input name="bio" ref={register({ 
+      <input
+        name="bio"
+        ref={register({
           required: false,
           maxLength: 1000,
         })}
       />
-    
-      <input type="submit"/>
+
+      <input type="submit" />
     </form>
   );
 }

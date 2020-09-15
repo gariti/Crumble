@@ -1,18 +1,23 @@
-import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Redirect, withRouter, Link } from "react-router-dom";
+import { AuthContext } from "../../Firebase/Auth";
 import logo from "../../logo.svg";
 
-class LandingPage extends Component {
-    render () {
-        return (
-            <div>
-                <h1>New here?</h1>
-                <img src={logo} className="App-logo" alt="logo" />
-                <Link to="/newuser">New User?</Link>
-                <Link to="/login">Login</Link>
-            </div>
-        );
-    }
+function LandingPage() {
+  const { currentUser } = useContext(AuthContext);
+
+  if (currentUser) {
+    return <Redirect to="/" />;
+  }
+
+  return (
+    <div>
+      <h1>New here?</h1>
+      <img src={logo} className="App-logo" alt="logo" />
+      <Link to="/signup">New User?</Link>
+      <Link to="/login">Login</Link>
+    </div>
+  );
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);
