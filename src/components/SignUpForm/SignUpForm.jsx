@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import firebase from "../../Firebase/Firebase";
 import { useHistory } from "react-router-dom";
+import { AuthContext } from "../../Firebase/Auth";
 
 export default function SignUp() {
   const { register, handleSubmit, errors, setError } = useForm();
   const history = useHistory();
+  const { currentUser } = useContext(AuthContext);
+  var db = firebase.firestore();
 
   const onSubmit = async (values) => {
     firebase
