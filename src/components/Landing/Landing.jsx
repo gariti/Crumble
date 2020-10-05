@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { Redirect, withRouter, Link } from "react-router-dom";
-import { AuthContext } from "../../Firebase/Auth";
+import { AuthContext } from "../../context/AuthContext";
 import logo from "../../logo.svg";
 
 function LandingPage() {
-  const { currentUser } = useContext(AuthContext);
+  const { authUser } = useContext(AuthContext);
 
-  if (currentUser) {
+  if (authUser) {
     return <Redirect to="/" />;
   }
 

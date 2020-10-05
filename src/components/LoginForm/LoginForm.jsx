@@ -2,13 +2,15 @@ import React, { useContext } from "react";
 import { Redirect, withRouter } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import firebase from "../../Firebase/Firebase";
-import { AuthContext } from "../../Firebase/Auth";
+import firebase from "../../firebase/Firebase";
+import { AuthContext } from "../../context/AuthContext";
 
 function LoginForm() {
-  const { register, handleSubmit, errors, setError } = useForm();
+  const { register, handleSubmit, errors, setError } = useForm({
+    mode: "onBlur",
+  });
   const history = useHistory();
-  const { currentUser } = useContext(AuthContext);
+  const { authUser } = useContext(AuthContext);
 
   const onSubmit = async (values) => {
     firebase
@@ -27,7 +29,7 @@ function LoginForm() {
       });
   };
 
-  if (currentUser) {
+  if (authUser) {
     return <Redirect to="/" />;
   }
 

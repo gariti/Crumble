@@ -1,25 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Redirect, withRouter, Link } from "react-router-dom";
-import { AuthContext } from "../../Firebase/Auth";
-import firebase from "../../Firebase/Firebase";
+import { AuthContext } from "../../context/AuthContext";
+import { UserContext } from "../../context/UserContext";
+import firebase from "../../firebase/Firebase";
 
 function Home() {
-  const { currentUser } = useContext(AuthContext);
+  const { authUser } = useContext(AuthContext);
+  const { user } = useContext(UserContext);
+  const [loading, setLoading] = useState(true);
 
-  if (currentUser.emailVerified === false) {
-    return <Redirect to="/editprofile" />;
-  }
+  useEffect(() => {
+    setLoading(user.loading);
+  }, [user]);
 
   return (
-    <div>
-      <h1>
-        Hello {currentUser.displayName}. Logged in as: {currentUser.email}
-      </h1>
+    !loading && (
+      <div>
+        <h1>
+          Hello {user.data.firstName}. Logged in as: {authUser.email}
+        </h1>
 
-      <Link to="/editprofile">Edit Profile</Link>
+        <Link to="/editprofile">Edit Profile</Link>
 
-      <button onClick={() => firebase.auth().signOut()}>Sign out</button>
-    </div>
+        <button onClick={() => firebase.auth().signOut()}>Sign out</button>
+      </div>
+    )
   );
 }
 
