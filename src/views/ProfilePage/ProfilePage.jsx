@@ -15,20 +15,9 @@ import classNames from 'classnames';
 import Button from 'components/CustomButtons/Button.js';
 import GridContainer from 'components/Grid/GridContainer.js';
 import GridItem from 'components/Grid/GridItem.js';
-import NavPills from 'components/NavPills/NavPills.jsx';
 import Parallax from 'components/Parallax/Parallax.js';
 import { UserContext } from 'context/UserContext';
 import React, { useEffect, useContext, useState } from 'react';
-
-// core components
-
-// nodejs library that concatenates classes
-
-// @material-ui/core components
-
-// core components
-
-// import { withRouter, Link } from "react-router-dom";
 
 const useStyles = makeStyles(styles);
 
@@ -87,7 +76,7 @@ export default function ProfilePage(props) {
               </div>
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
-                  <NavPills
+                  {/* <NavPills
                     alignCenter
                     color="primary"
                     tabs={[
@@ -97,7 +86,7 @@ export default function ProfilePage(props) {
                         tabContent: (
                           <GridContainer justify="center">
                             <GridItem xs={12} sm={12} md={4}>
-                              {/* <img
+                              <img
                                 alt="..."
                                 src={studio1}
                                 className={navImageClasses}
@@ -118,7 +107,7 @@ export default function ProfilePage(props) {
                                 alt="..."
                                 src={studio4}
                                 className={navImageClasses}
-                              /> */}
+                              />
                             </GridItem>
                           </GridContainer>
                         ),
@@ -173,7 +162,7 @@ export default function ProfilePage(props) {
                         ),
                       },
                     ]}
-                  />
+                  /> */}
                 </GridItem>
               </GridContainer>
             </div>

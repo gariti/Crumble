@@ -7,10 +7,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import PrivateRoute from './Routes/PrivateRoute';
 import Theme from './Theme';
-import Home from './components/Home/ExampleHome';
 import { AuthProvider } from './context/AuthContext';
 import { UserProvider } from './context/UserContext';
 import EditProfile from './views/EditProfile/EditProfile';
+import Home from './views/Home/Home';
 import LandingPage from './views/LandingPage/LandingPage';
 import LoginPage from './views/LoginPage/LoginPage';
 import ProfilePage from './views/ProfilePage/ProfilePage';

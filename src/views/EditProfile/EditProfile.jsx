@@ -11,11 +11,9 @@ import Alert from '@material-ui/lab/Alert';
 import buffet from 'assets/img/free/buffet.jpg';
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
+import { useHistory, withRouter } from 'react-router-dom';
 
 import { UserContext } from '../../context/UserContext';
-
-// import { useTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -51,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EditProfile() {
+function EditProfile() {
   // const { authUser } = useContext(AuthContext);
   // const theme = useTheme();
   const classes = useStyles();
@@ -307,3 +305,5 @@ export default function EditProfile() {
     )
   );
 }
+
+export default withRouter(EditProfile);
