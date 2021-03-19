@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
-import { Redirect, withRouter, Link } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
-import logo from "../../location_city-24px.svg";
+import React, { useContext } from 'react';
+import { Redirect, withRouter, Link } from 'react-router-dom';
+
+import { AuthContext } from '../../context/AuthContext';
+import logo from '../../location_city-24px.svg';
 
 function LandingPage() {
   const { authUser } = useContext(AuthContext);

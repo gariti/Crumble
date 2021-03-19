@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
-import firebase from "../firebase/Firebase.js";
+import React, { useEffect, useState } from 'react';
+
+import firebase from '../firebase/Firebase.js';
 
 export const AuthContext = React.createContext();
 
+// eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
   const [authUser, setAuthUser] = useState(null);
 

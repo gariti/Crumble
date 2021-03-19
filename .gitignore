@@ -64,3 +64,5 @@ node_modules/
 
 # dotenv environment variables file
 .env
+.vscode/launch.json
+.vscode/settings.json

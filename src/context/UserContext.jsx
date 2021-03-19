@@ -1,9 +1,11 @@
-import React, { useEffect, useState, useContext } from "react";
-import firebase from "../firebase/Firebase.js";
-import { AuthContext } from "./AuthContext";
+import React, { useEffect, useState, useContext } from 'react';
+
+import firebase from '../firebase/Firebase.js';
+import { AuthContext } from './AuthContext';
 
 export const UserContext = React.createContext();
 
+// eslint-disable-next-line react/prop-types
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState({
     data: null,
@@ -13,12 +15,12 @@ export const UserProvider = ({ children }) => {
   const { authUser } = useContext(AuthContext);
 
   useEffect(() => {
-    if (authUser)
+    if (authUser) {
       setUser({
         ...user,
-        docRef: firebase.firestore().collection("users").doc(authUser.uid),
+        docRef: firebase.firestore().collection('users').doc(authUser.uid),
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }
   }, [authUser]);
 
   useEffect(() => {
@@ -36,7 +38,6 @@ export const UserProvider = ({ children }) => {
         });
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.docRef]);
 
   return (

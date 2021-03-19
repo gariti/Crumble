@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
-import { Redirect, withRouter } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
-import firebase from "../../firebase/Firebase";
-import { AuthContext } from "../../context/AuthContext";
+import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { Redirect, withRouter, useHistory } from 'react-router-dom';
+
+import { AuthContext } from '../../context/AuthContext';
 
 function LoginForm() {
   const { register, handleSubmit, errors, setError } = useForm({
-    mode: "onBlur",
+    mode: 'onBlur',
   });
   const history = useHistory();
   const { authUser } = useContext(AuthContext);
@@ -16,16 +15,16 @@ function LoginForm() {
     firebase
       .auth()
       .signInWithEmailAndPassword(values.email, values.password)
-      .then(function () {
-        console.log("log in success");
-        history.push(`/`);
+      .then(() => {
+        console.log('log in success');
+        history.push('/');
       })
-      .catch(function (error) {
-        setError("firebase", {
-          type: "manual",
+      .catch((error) => {
+        setError('firebase', {
+          type: 'manual',
           message: error.message,
         });
-        console.error("Failed to Log in: ", error.message);
+        console.error('Failed to Log in: ', error.message);
       });
   };
 
@@ -46,11 +45,11 @@ function LoginForm() {
         })}
       />
 
-      {errors.email && errors.email.type === "required" && (
+      {errors.email && errors.email.type === 'required' && (
         <p>Email address is required to log in</p>
       )}
 
-      {errors.email && errors.email.type === "pattern" && (
+      {errors.email && errors.email.type === 'pattern' && (
         <p>Email is not in a correct format</p>
       )}
 
@@ -64,7 +63,7 @@ function LoginForm() {
         })}
       />
 
-      {errors.password && errors.password.type === "required" && (
+      {errors.password && errors.password.type === 'required' && (
         <p>Password is required</p>
       )}
 

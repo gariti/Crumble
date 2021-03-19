@@ -41,7 +41,6 @@ export default function ProfilePage(props) {
   return (
     !loading && (
       <div>
-        <Parallax small filter image={profilebg} />
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div>
             <div className={classes.container}>
@@ -57,7 +56,7 @@ export default function ProfilePage(props) {
                         {user.data.nickname}
                         {user.data.lastName}
                       </h3>
-                      <h6>user.data.city</h6>
+                      <h6>{user.data.city}</h6>
                       <Button justIcon link className={classes.margin5}>
                         <i className="fab fa-twitter" />
                       </Button>
