@@ -1,5 +1,5 @@
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button'
+import { withStyles } from '@material-ui/core/styles'
 
 export default withStyles((theme) => ({
   root: {
@@ -21,4 +21,4 @@ export default withStyles((theme) => ({
     padding: theme.spacing(2, 5),
     fontSize: theme.typography.pxToRem(16),
   },
-}))(Button);
+}))(Button)

@@ -1,10 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import productHeroArrowDown from "assets/img/productHeroArrowDown.png";
-
+import { withStyles } from '@material-ui/core/styles';
+import productHeroArrowDown from 'assets/img/productHeroArrowDown.png';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const styles = (theme) => ({
   root: {

@@ -1,14 +1,15 @@
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import IconButton from '@material-ui/core/IconButton';
-import Toolbar from '@material-ui/core/Toolbar';
+import React from 'react'
+// import IconButton from '@material-ui/core/IconButton';
+// import Toolbar from '@material-ui/core/Toolbar';
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
-import { UserContext } from 'context/UserContext';
+// import MenuIcon from '@material-ui/icons/Menu';
+// import { UserContext } from 'context/UserContext';
 import 'firebase/auth';
 import 'firebase/firestore';
-import React, { useEffect, useState, useContext } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import React, { useEffect, useState, useContext } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import PrivateRoute from './Routes/PrivateRoute';
 import Theme from './Theme';

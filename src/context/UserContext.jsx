@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 
-import firebase from '../firebase/Firebase.js';
+import firebase from 'firebase/Firebase';
 import { AuthContext } from './AuthContext';
 
 export const UserContext = React.createContext();
@@ -41,6 +41,7 @@ export const UserProvider = ({ children }) => {
   }, [user.docRef]);
 
   return (
+    // eslint-disable-next-line prettier/prettier
     <UserContext.Provider value={{ user: user, setUser: setUser }}>
       {children}
     </UserContext.Provider>

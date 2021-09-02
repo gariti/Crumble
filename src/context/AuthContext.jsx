@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import firebase from '../firebase/Firebase.js';
+import firebase from '../firebase/Firebase';
 
 export const AuthContext = React.createContext();
 
@@ -13,7 +13,8 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ authUser: authUser }}>
+    // eslint-disable-next-line prettier/prettier
+    <AuthContext.Provider value={{ authUser }}>
       {children}
     </AuthContext.Provider>
   );

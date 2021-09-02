@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+/* eslint-disable react/prop-types */
 import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/styles';
 import Typography from 'components/Typography';
+import React from 'react';
 
 const styles = (theme) => ({
   root: {
@@ -60,8 +60,9 @@ function ProductValues(props) {
                 The best luxury hotels
               </Typography>
               <Typography variant="h5">
-                {'From the latest trendy boutique hotel to the iconic palace with XXL pool'}
-                {', go for a mini-vacation just a few subway stops away from your home.'}
+                From the latest trendy boutique hotel to the iconic palace with
+                XXL pool , go for a mini-vacation just a few subway stops away
+                from your home.
               </Typography>
             </div>
           </Grid>
@@ -76,8 +77,10 @@ function ProductValues(props) {
                 New experiences
               </Typography>
               <Typography variant="h5">
-                {'Privatize a pool, take a Japanese bath or wake up in 900m2 of garden… '}
-                {'your Sundays will not be alike.'}
+                {
+                  'Privatize a pool, take a Japanese bath or wake up in 900m2 of garden… '
+                }
+                your Sundays will not be alike.
               </Typography>
             </div>
           </Grid>
@@ -93,7 +96,7 @@ function ProductValues(props) {
               </Typography>
               <Typography variant="h5">
                 {'By registering, you will access specially negotiated rates '}
-                {'that you will not find anywhere else.'}
+                that you will not find anywhere else.
               </Typography>
             </div>
           </Grid>
@@ -103,8 +106,8 @@ function ProductValues(props) {
   );
 }
 
-ProductValues.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+// ProductValues.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 
 export default withStyles(styles)(ProductValues);

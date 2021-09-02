@@ -2,13 +2,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
-import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
+import {  makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-import { UserContext } from 'context/UserContext';
+// import { UserContext } from 'context/UserContext';
 import 'firebase/auth';
 import 'firebase/firestore';
-import React, { useEffect, useState, useContext } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import React from 'react'
+// import React, { useState, useContext } from 'react';
+import { BrowserRouter as Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,10 +25,11 @@ const useStyles = makeStyles((theme) => ({
 
 function SoukAppBar() {
   const classes = useStyles();
-  const { user } = useContext(UserContext);
-  const [loading, setLoading] = useState(true);
+  // const { user } = useContext(UserContext);
+  // const [loading, setLoading] = useState(true);
 
   return (
+    // eslint-disable-next-line prettier/prettier
     <AppBar position="static">
       <Toolbar>
         <IconButton

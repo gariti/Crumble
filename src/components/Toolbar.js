@@ -1,5 +1,5 @@
-import { withStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
+import Toolbar from '@material-ui/core/Toolbar'
+import { withStyles } from '@material-ui/core/styles'
 
 export const styles = (theme) => ({
   root: {
@@ -8,6 +8,6 @@ export const styles = (theme) => ({
       height: 70,
     },
   },
-});
+})
 
-export default withStyles(styles)(Toolbar);
+export default withStyles(styles)(Toolbar)

@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import Container from '@material-ui/core/Container';
-import Typography from 'components/Typography';
-import TextField from 'components/TextField';
-import Snackbar from 'components/Snackbar';
+import { withStyles } from '@material-ui/core/styles';
 import Button from 'components/Button';
+import Snackbar from 'components/Snackbar';
+import TextField from 'components/TextField';
+import Typography from 'components/Typography';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const styles = (theme) => ({
   root: {
@@ -83,8 +83,17 @@ function ProductCTA(props) {
               <Typography variant="h5">
                 Taste the holidays of the everyday close to home.
               </Typography>
-              <TextField noBorder className={classes.textField} placeholder="Your email" />
-              <Button type="submit" color="primary" variant="contained" className={classes.button}>
+              <TextField
+                noBorder
+                className={classes.textField}
+                placeholder="Your email"
+              />
+              <Button
+                type="submit"
+                color="primary"
+                variant="contained"
+                className={classes.button}
+              >
                 Keep me updated
               </Button>
             </form>

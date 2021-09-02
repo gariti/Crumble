@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from 'components/Typography';
+import React from 'react';
 
 const styles = (theme) => ({
   root: {
@@ -41,13 +41,17 @@ function ProductSmokingHero(props) {
       <Typography variant="subtitle1" className={classes.link}>
         We are here to help. Get in touch!
       </Typography>
-      <img src="/static/themes/onepirate/producBuoy.svg" className={classes.buoy} alt="buoy" />
+      <img
+        src="/static/themes/onepirate/producBuoy.svg"
+        className={classes.buoy}
+        alt="buoy"
+      />
     </Container>
   );
 }
 
-ProductSmokingHero.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+// ProductSmokingHero.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 
 export default withStyles(styles)(ProductSmokingHero);

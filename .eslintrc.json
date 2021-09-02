@@ -1,24 +1,8 @@
 {
-  "extends": ["prettier", "airbnb"],
+  "extends": "@imaginary-cloud/react",
   "env": { "browser": true, "node": true, "es6": true },
   "parserOptions": { "ecmaVersion": 2018, "sourceType": "module" },
-  "plugins": ["prettier"],
-  "rules": {
-    "react/jsx-props-no-spreading": "off",
-    "react/jsx-one-expression-per-line": "off",
-    "import/extensions": "off",
-    "react/forbid-prop-types": "off",
-    "import/no-unresolved": "off",
-    "prettier/prettier": "error",
-    "no-unused-vars": "warn",
-    "no-console": "off",
-    "func-names": "off",
-    "no-process-exit": "off",
-    "object-shorthand": "off",
-    "class-methods-use-this": "off",
-    "comma-dangle": "off",
-    "operator-linebreak": "off",
-    "indent": "off",
-    "object-curly-newline": "off"
-  }
+  "settings": { "import/resolver": { "node": { "paths": ["src"] } } },
+  "plugins": ["jsx", "flow", "typescript"],
+  "rules": { "object-shorthand": "off" }
 }

@@ -1,9 +1,9 @@
-import React from 'react';
+import MuiTextField from '@material-ui/core/TextField';
+import { withStyles } from '@material-ui/core/styles';
+import { capitalize } from '@material-ui/core/utils';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import MuiTextField from '@material-ui/core/TextField';
-import { capitalize } from '@material-ui/core/utils';
+import React from 'react';
 
 const styles = (theme) => ({
   root: {
@@ -87,7 +87,7 @@ function TextField(props) {
             {
               [classes.inputBorder]: !noBorder,
             },
-            InputPropsClassesInput,
+            InputPropsClassesInput
           ),
           disabled: classes.disabled,
           ...InputPropsClassesOther,

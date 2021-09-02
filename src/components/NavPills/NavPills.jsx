@@ -1,15 +1,19 @@
 /* eslint-disable react/no-array-index-key */
+
 /* eslint-disable react/require-default-props */
+
 /* eslint-disable no-shadow */
+
 /* eslint-disable react/prop-types */
+
 /* eslint-disable react/destructuring-assignment */
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from 'assets/jss/material-kit-react/components/navPillsStyle.js';
 import classNames from 'classnames';
-import GridContainer from 'components/Grid/GridContainer.js';
-import GridItem from 'components/Grid/GridItem.js';
+import GridContainer from 'components/Grid/GridContainer.jsx';
+import GridItem from 'components/Grid/GridItem.jsx';
 import PropTypes from 'prop-types';
 import React from 'react';
 import SwipeableViews from 'react-swipeable-views';

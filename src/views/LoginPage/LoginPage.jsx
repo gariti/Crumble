@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -45,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
       theme.palette.type === 'light'
         ? theme.palette.grey[50]
         : theme.palette.grey[900],
-    backgroundSize: 'cover',
+    backgroundSize: 'cover', 
     backgroundPosition: 'center',
   },
   paper: {
@@ -180,7 +181,7 @@ function LoginPage() {
               </Grid> */}
               <Grid item>
                 <Link href="/signup" variant="body2">
-                  Don't have an account? Sign Up
+                  Don&apos;t have an account? Sign Up
                 </Link>
               </Grid>
             </Grid>
