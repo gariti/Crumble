@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react'
 
-import firebase from '../firebase/Firebase';
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
-export const AuthContext = React.createContext();
+export const AuthContext = React.createContext()
 
 // eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
-  const [authUser, setAuthUser] = useState(null);
+  const [authUser, setAuthUser] = useState(null)
+  const auth = getAuth()
 
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged(setAuthUser);
-  }, []);
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setAuthUser(user)
+    }
+  })
 
   return (
     // eslint-disable-next-line prettier/prettier
-    <AuthContext.Provider value={{ authUser }}>
-      {children}
-    </AuthContext.Provider>
-  );
-};
+    <AuthContext.Provider value={{ authUser }}>{children}</AuthContext.Provider>
+  )
+}

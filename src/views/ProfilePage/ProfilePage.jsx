@@ -1,42 +1,42 @@
 // import { Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 // import {
 //   PhotoCameraOutlined,
 //   PinDropRounded,
 //   Restaurant,
 // } from '@material-ui/icons';
-import profile from 'assets/img/faces/garrettprofile.jpg';
+import profile from 'assets/img/faces/garrettprofile.jpg'
 // import beer from 'assets/img/free/beer.jpg';
 // import casks from 'assets/img/free/casks.jpg';
 // import crispybuns from 'assets/img/free/crispybuns.jpg';
 // import profilebg from 'assets/img/profile-bg.jpg';
-import styles from 'assets/jss/material-kit-react/views/profilePage';
-import classNames from 'classnames';
-import Button from 'components/CustomButtons/Button';
-import GridContainer from 'components/Grid/GridContainer';
-import GridItem from 'components/Grid/GridItem';
+import styles from 'assets/jss/material-kit-react/views/profilePage'
+import classNames from 'classnames'
+import Button from 'components/CustomButtons/Button'
+import GridContainer from 'components/Grid/GridContainer'
+import GridItem from 'components/Grid/GridItem'
 // import Parallax from 'components/Parallax/Parallax.jsx';
-import { UserContext } from 'context/UserContext';
-import React, { useEffect, useContext, useState } from 'react';
+import { UserContext } from 'context/UserContext'
+import React, { useEffect, useContext, useState } from 'react'
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles(styles)
 
 export default function ProfilePage() {
-  const { user } = useContext(UserContext);
-  const [loading, setLoading] = useState(true);
+  const { user } = useContext(UserContext)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (!user.loading) {
-      setLoading(user.loading);
+      setLoading(user.loading)
     }
-  }, [user.loading]);
+  }, [user.loading])
 
-  const classes = useStyles();
+  const classes = useStyles()
   const imageClasses = classNames(
     classes.imgRaised,
     classes.imgRoundedCircle,
-    classes.imgFluid
-  );
+    classes.imgFluid,
+  )
   // const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
   return (
     !loading && (
@@ -169,5 +169,5 @@ export default function ProfilePage() {
         </div>
       </div>
     )
-  );
+  )
 }

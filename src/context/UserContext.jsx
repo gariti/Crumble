@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react'
 
-import firebase from 'firebase/Firebase';
-import { AuthContext } from './AuthContext';
+import firebase from 'firebase/Firebase'
+import { AuthContext } from './AuthContext'
 
-export const UserContext = React.createContext();
+export const UserContext = React.createContext()
 
 // eslint-disable-next-line react/prop-types
 export const UserProvider = ({ children }) => {
@@ -11,17 +11,17 @@ export const UserProvider = ({ children }) => {
     data: null,
     loading: true,
     docRef: null,
-  });
-  const { authUser } = useContext(AuthContext);
+  })
+  const { authUser } = useContext(AuthContext)
 
   useEffect(() => {
     if (authUser) {
       setUser({
         ...user,
         docRef: firebase.firestore().collection('users').doc(authUser.uid),
-      });
+      })
     }
-  }, [authUser]);
+  }, [authUser])
 
   useEffect(() => {
     if (user.docRef) {
@@ -35,15 +35,15 @@ export const UserProvider = ({ children }) => {
             emailVerified: authUser.emailVerified,
           },
           loading: false,
-        });
-      });
+        })
+      })
     }
-  }, [user.docRef]);
+  }, [user.docRef])
 
   return (
     // eslint-disable-next-line prettier/prettier
-    <UserContext.Provider value={{ user: user, setUser: setUser }}>
+    <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
-  );
-};
+  )
+}

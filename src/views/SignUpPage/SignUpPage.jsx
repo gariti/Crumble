@@ -1,21 +1,21 @@
-import Avatar from '@material-ui/core/Avatar';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Alert from '@material-ui/lab/Alert';
-import backgroundImage from 'assets/img/free/chickpeabowl.jpg';
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { withRouter, useHistory } from 'react-router-dom';
+import Avatar from '@material-ui/core/Avatar'
+import Box from '@material-ui/core/Box'
+import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Grid from '@material-ui/core/Grid'
+import Link from '@material-ui/core/Link'
+import Paper from '@material-ui/core/Paper'
+import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/core/styles'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import Alert from '@material-ui/lab/Alert'
+import backgroundImage from 'assets/img/free/chickpeabowl.jpg'
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import { withRouter, useHistory } from 'react-router-dom'
 
-import firebase from '../../firebase/Firebase';
+import firebase from '../../firebase/Firebase'
 
 // import { AuthContext } from '../../context/AuthContext';
 
@@ -28,7 +28,7 @@ function Copyright() {
       </Link>{' '}
       {new Date().getFullYear()}.
     </Typography>
-  );
+  )
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -62,32 +62,34 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-}));
+}))
 
 function SignUpPage() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   const { register, handleSubmit, errors, setError } = useForm({
     mode: 'onBlur',
-  });
-  const history = useHistory();
+  })
+  const history = useHistory()
 
   const onSubmit = async (values) => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(values.email, values.password)
       .then(() => {
-        console.log('sign up success');
-        history.push('/');
+        // eslint-disable-next-line no-console
+        console.log('sign up success')
+        history.push('/')
       })
       .catch((error) => {
         setError('firebase', {
           type: 'manual',
           message: error.message,
-        });
-        console.error('Failed to sign up: ', error.message);
-      });
-  };
+        })
+        // eslint-disable-next-line no-console
+        console.error('Failed to sign up: ', error.message)
+      })
+  }
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -167,7 +169,7 @@ function SignUpPage() {
         </div>
       </Grid>
     </Grid>
-  );
+  )
 }
 
-export default withRouter(SignUpPage);
+export default withRouter(SignUpPage)

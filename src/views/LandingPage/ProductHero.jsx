@@ -1,11 +1,11 @@
-import { withStyles } from '@material-ui/core/styles';
-import backgroundImage from 'assets/img/free/pizzaOven.jpg';
-import Button from 'components/Button';
-import Typography from 'components/Typography';
-import PropTypes from 'prop-types';
-import React from 'react';
+import { withStyles } from '@material-ui/core/styles'
+import backgroundImage from 'assets/img/free/pizzaOven.jpg'
+import Button from 'components/Button'
+import Typography from 'components/Typography'
+import PropTypes from 'prop-types'
+import React from 'react'
 
-import ProductHeroLayout from './ProductHeroLayout';
+import ProductHeroLayout from './ProductHeroLayout'
 
 const styles = (theme) => ({
   background: {
@@ -26,10 +26,10 @@ const styles = (theme) => ({
   more: {
     marginTop: theme.spacing(2),
   },
-});
+})
 
 function ProductHero(props) {
-  const { classes } = props;
+  const { classes } = props
 
   return (
     <ProductHeroLayout backgroundClassName={classes.background}>
@@ -66,11 +66,11 @@ function ProductHero(props) {
         Support independant eateries!
       </Typography>
     </ProductHeroLayout>
-  );
+  )
 }
 
 ProductHero.propTypes = {
   classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(ProductHero);
+export default withStyles(styles)(ProductHero)

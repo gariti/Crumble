@@ -1,19 +1,20 @@
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Alert from '@material-ui/lab/Alert';
-import buffet from 'assets/img/free/buffet.jpg';
-import React, { useContext, useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useHistory, withRouter } from 'react-router-dom';
+/* eslint-disable no-console */
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
+import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/core/styles'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import Alert from '@material-ui/lab/Alert'
+import buffet from 'assets/img/free/buffet.jpg'
+import React, { useContext, useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { useHistory, withRouter } from 'react-router-dom'
 
-import { UserContext } from '../../context/UserContext';
+import { UserContext } from '../../context/UserContext'
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -47,45 +48,45 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-}));
+}))
 
 function EditProfile() {
   // const { authUser } = useContext(AuthContext);
   // const theme = useTheme();
-  const classes = useStyles();
-  const { user, setUser } = useContext(UserContext);
-  const history = useHistory();
-  const [loading, setLoading] = useState(true);
+  const classes = useStyles()
+  const { user, setUser } = useContext(UserContext)
+  const history = useHistory()
+  const [loading, setLoading] = useState(true)
   const defaultFormValues = {
     address: '',
     bio: '',
     firstName: '',
     lastName: '',
     nickname: '',
-  };
+  }
 
   const { register, handleSubmit, errors, reset } = useForm({
     defaultValues: defaultFormValues,
     mode: 'onBlur',
-  });
+  })
 
   useEffect(() => {
     if (!user.loading) {
-      setLoading(user.loading);
-      reset(user.data);
+      setLoading(user.loading)
+      reset(user.data)
     }
-  }, [user, reset]);
+  }, [user, reset])
 
   const updateUser = async (values) => {
-    const newUserData = { ...user.data, ...values };
+    const newUserData = { ...user.data, ...values }
 
     await user.docRef.update({ ...newUserData }).catch((error) => {
-      console.error('Error updating document:', error);
-    });
-    setUser({ ...user, data: newUserData });
-    console.log('Document updated:', user.docRef.id);
-    history.push('/profile');
-  };
+      console.error('Error updating document:', error)
+    })
+    setUser({ ...user, data: newUserData })
+    console.log('Document updated:', user.docRef.id)
+    history.push('/profile')
+  }
 
   // TODO: Banner to send email verification
   // const resendEmailVerification = async () => {
@@ -303,7 +304,7 @@ function EditProfile() {
         </Grid>
       </div>
     )
-  );
+  )
 }
 
-export default withRouter(EditProfile);
+export default withRouter(EditProfile)

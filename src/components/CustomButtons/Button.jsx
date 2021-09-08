@@ -1,20 +1,20 @@
-import React from 'react';
+import React from 'react'
 // nodejs library to set properties for components
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 // nodejs library that concatenates classes
-import classNames from 'classnames';
+import classNames from 'classnames'
 
 // @material-ui/core components
-import makeStyles from '@material-ui/core/styles/makeStyles';
-import Button from '@material-ui/core/Button';
+import makeStyles from '@material-ui/core/styles/makeStyles'
+import Button from '@material-ui/core/Button'
 
 // core components
 
-import buttonStyle from 'assets/jss/material-kit-react/components/buttonStyle';
+import buttonStyle from 'assets/jss/material-kit-react/components/buttonStyle'
 
 const makeComponentStyles = makeStyles(() => ({
-  ...buttonStyle
-}));
+  ...buttonStyle,
+}))
 
 const RegularButton = React.forwardRef((props, ref) => {
   const {
@@ -30,9 +30,9 @@ const RegularButton = React.forwardRef((props, ref) => {
     justIcon,
     className,
     ...rest
-  } = props;
+  } = props
 
-  const classes = makeComponentStyles();
+  const classes = makeComponentStyles()
 
   const btnClasses = classNames({
     [classes.button]: true,
@@ -45,14 +45,14 @@ const RegularButton = React.forwardRef((props, ref) => {
     [classes.block]: block,
     [classes.link]: link,
     [classes.justIcon]: justIcon,
-    [className]: className
-  });
+    [className]: className,
+  })
   return (
     <Button {...rest} ref={ref} className={btnClasses}>
       {children}
     </Button>
-  );
-});
+  )
+})
 
 RegularButton.propTypes = {
   color: PropTypes.oneOf([
@@ -67,7 +67,7 @@ RegularButton.propTypes = {
     'twitter',
     'google',
     'github',
-    'transparent'
+    'transparent',
   ]),
   size: PropTypes.oneOf(['sm', 'lg']),
   simple: PropTypes.bool,
@@ -78,7 +78,7 @@ RegularButton.propTypes = {
   link: PropTypes.bool,
   justIcon: PropTypes.bool,
   children: PropTypes.node,
-  className: PropTypes.string
-};
+  className: PropTypes.string,
+}
 
-export default RegularButton;
+export default RegularButton

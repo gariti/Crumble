@@ -1,17 +1,17 @@
-import Button from '@material-ui/core/Button';
-import React, { useContext, useState, useEffect } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button'
+import React, { useContext, useState, useEffect } from 'react'
+import { withRouter, Link } from 'react-router-dom'
 
-import { UserContext } from '../../context/UserContext';
-import firebase from '../../firebase/Firebase';
+import { UserContext } from '../../context/UserContext'
+import firebase from '../../firebase/Firebase'
 
 function Home() {
-  const { user } = useContext(UserContext);
-  const [loading, setLoading] = useState(true);
+  const { user } = useContext(UserContext)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setLoading(user.loading);
-  }, [user]);
+    setLoading(user.loading)
+  }, [user])
 
   return (
     !loading && (
@@ -32,7 +32,7 @@ function Home() {
         </Button>
       </div>
     )
-  );
+  )
 }
 
-export default withRouter(Home);
+export default withRouter(Home)

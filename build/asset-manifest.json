@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.js": "/static/js/main.e1d6f54f.chunk.js",
+    "main.js.map": "/static/js/main.e1d6f54f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4eab1d6a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4eab1d6a.js.map",
+    "static/css/2.818011ed.chunk.css": "/static/css/2.818011ed.chunk.css",
+    "static/js/2.418fc2d3.chunk.js": "/static/js/2.418fc2d3.chunk.js",
+    "static/js/2.418fc2d3.chunk.js.map": "/static/js/2.418fc2d3.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.818011ed.chunk.css.map": "/static/css/2.818011ed.chunk.css.map",
+    "static/js/2.418fc2d3.chunk.js.LICENSE.txt": "/static/js/2.418fc2d3.chunk.js.LICENSE.txt",
+    "static/media/biryani.da221a50.jpg": "/static/media/biryani.da221a50.jpg",
+    "static/media/buffet.39fef2c0.jpg": "/static/media/buffet.39fef2c0.jpg",
+    "static/media/chickpeabowl.c10ecc23.jpg": "/static/media/chickpeabowl.c10ecc23.jpg",
+    "static/media/garrettprofile.c7ed4936.jpg": "/static/media/garrettprofile.c7ed4936.jpg",
+    "static/media/map.c846adaa.svg": "/static/media/map.c846adaa.svg",
+    "static/media/order.0af0de3e.svg": "/static/media/order.0af0de3e.svg",
+    "static/media/pizzaOven.455ba773.jpg": "/static/media/pizzaOven.455ba773.jpg",
+    "static/media/walk.a0de33ab.svg": "/static/media/walk.a0de33ab.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4eab1d6a.js",
+    "static/css/2.818011ed.chunk.css",
+    "static/js/2.418fc2d3.chunk.js",
+    "static/js/main.e1d6f54f.chunk.js"
+  ]
+}

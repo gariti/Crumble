@@ -1,23 +1,23 @@
 /* eslint-disable no-console */
-import Avatar from '@material-ui/core/Avatar';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Alert from '@material-ui/lab/Alert';
-import backgroundImage from 'assets/img/free/biryani.jpg';
-import React, { useContext } from 'react';
-import { useForm } from 'react-hook-form';
-import { Redirect, withRouter, useHistory } from 'react-router-dom';
+import Avatar from '@material-ui/core/Avatar'
+import Box from '@material-ui/core/Box'
+import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Grid from '@material-ui/core/Grid'
+import Link from '@material-ui/core/Link'
+import Paper from '@material-ui/core/Paper'
+import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/core/styles'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import Alert from '@material-ui/lab/Alert'
+import backgroundImage from 'assets/img/free/biryani.jpg'
+import React, { useContext } from 'react'
+import { useForm } from 'react-hook-form'
+import { Redirect, withRouter, useHistory } from 'react-router-dom'
 
-import { AuthContext } from '../../context/AuthContext';
-import firebase from '../../firebase/Firebase';
+import { AuthContext } from '../../context/AuthContext'
+import firebase from '../../firebase/Firebase'
 
 // import Checkbox from '@material-ui/core/Checkbox';
 
@@ -32,7 +32,7 @@ function Copyright() {
       </Link>{' '}
       {new Date().getFullYear()}.
     </Typography>
-  );
+  )
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
       theme.palette.type === 'light'
         ? theme.palette.grey[50]
         : theme.palette.grey[900],
-    backgroundSize: 'cover', 
+    backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
   paper: {
@@ -66,36 +66,36 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-}));
+}))
 
 function LoginPage() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   const { register, handleSubmit, errors, setError } = useForm({
     mode: 'onBlur',
-  });
-  const history = useHistory();
-  const { authUser } = useContext(AuthContext);
+  })
+  const history = useHistory()
+  const { authUser } = useContext(AuthContext)
 
   const onSubmit = async (values) => {
     firebase
       .auth()
       .signInWithEmailAndPassword(values.email, values.password)
       .then(() => {
-        console.log('log in success');
-        history.push('/');
+        console.log('log in success')
+        history.push('/')
       })
       .catch((error) => {
         setError('firebase', {
           type: 'manual',
           message: error.message,
-        });
-        console.error('Failed to Log in: ', error.message);
-      });
-  };
+        })
+        console.error('Failed to Log in: ', error.message)
+      })
+  }
 
   if (authUser) {
-    return <Redirect to="/" />;
+    return <Redirect to="/" />
   }
 
   return (
@@ -192,7 +192,7 @@ function LoginPage() {
         </div>
       </Grid>
     </Grid>
-  );
+  )
 }
 
-export default withRouter(LoginPage);
+export default withRouter(LoginPage)

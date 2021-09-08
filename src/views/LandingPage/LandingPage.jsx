@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
-import { withRouter, Redirect } from 'react-router-dom';
-import ProductHero from 'views/LandingPage/ProductHero';
-import ProductHowItWorks from 'views/LandingPage/ProductHowItWorks';
+import React, { useContext } from 'react'
+import { withRouter, Redirect } from 'react-router-dom'
+import ProductHero from 'views/LandingPage/ProductHero'
+import ProductHowItWorks from 'views/LandingPage/ProductHowItWorks'
 
-import { AuthContext } from '../../context/AuthContext';
+import { AuthContext } from '../../context/AuthContext'
 
 function LandingPage() {
-  const { authUser } = useContext(AuthContext);
+  const { authUser } = useContext(AuthContext)
 
   if (authUser) {
-    return <Redirect to="/" />;
+    return <Redirect to="/" />
   }
 
   return (
@@ -23,7 +23,7 @@ function LandingPage() {
       {/* <ProductSmokingHero /> */}
       {/* <AppFooter /> */}
     </>
-  );
+  )
 }
 
-export default withRouter(LandingPage);
+export default withRouter(LandingPage)

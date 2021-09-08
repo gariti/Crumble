@@ -1,12 +1,12 @@
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import { withStyles } from '@material-ui/core/styles';
-import productHowItWorks1 from 'assets/img/free/map.svg';
-import productHowItWorks2 from 'assets/img/free/order.svg';
-import productHowItWorks3 from 'assets/img/free/walk.svg';
-import Typography from 'components/Typography';
-import PropTypes from 'prop-types';
-import React from 'react';
+import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
+import { withStyles } from '@material-ui/core/styles'
+import productHowItWorks1 from 'assets/img/free/map.svg'
+import productHowItWorks2 from 'assets/img/free/order.svg'
+import productHowItWorks3 from 'assets/img/free/walk.svg'
+import Typography from 'components/Typography'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const styles = (theme) => ({
   root: {
@@ -51,10 +51,10 @@ const styles = (theme) => ({
   button: {
     marginTop: theme.spacing(8),
   },
-});
+})
 
 function ProductHowItWorks(props) {
-  const { classes } = props;
+  const { classes } = props
 
   return (
     <section className={classes.root}>
@@ -117,11 +117,11 @@ function ProductHowItWorks(props) {
         </div>
       </Container>
     </section>
-  );
+  )
 }
 
 ProductHowItWorks.propTypes = {
   classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(ProductHowItWorks);
+export default withStyles(styles)(ProductHowItWorks)
