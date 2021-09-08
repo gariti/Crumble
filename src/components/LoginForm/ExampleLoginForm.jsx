@@ -38,12 +38,10 @@ function LoginForm() {
 
       <label>Email:</label>
       <input
-        name="email"
-        ref={register({
+        {...register('email', {
           required: true,
           pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-        })}
-      />
+        })} />
 
       {errors.email && errors.email.type === 'required' && (
         <p>Email address is required to log in</p>
@@ -55,13 +53,11 @@ function LoginForm() {
 
       <label>Password:</label>
       <input
-        name="password"
-        type="password"
-        ref={register({
+        {...register('password', {
           required: true,
           minLength: 6,
         })}
-      />
+        type="password" />
 
       {errors.password && errors.password.type === 'required' && (
         <p>Password is required</p>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-
-import firebase from 'firebase/Firebase'
+import { getFirestore, doc } from 'firebase/firestore'
 import { AuthContext } from './AuthContext'
 
 export const UserContext = React.createContext()
@@ -13,23 +12,24 @@ export const UserProvider = ({ children }) => {
     docRef: null,
   })
   const { authUser } = useContext(AuthContext)
+  const db = getFirestore()
 
   useEffect(() => {
     if (authUser) {
       setUser({
         ...user,
-        docRef: firebase.firestore().collection('users').doc(authUser.uid),
+        docRef: doc(db, 'users', authUser.uid),
       })
     }
   }, [authUser])
 
   useEffect(() => {
     if (user.docRef) {
-      user.docRef.get().then((doc) => {
+      user.docRef.get().then((d) => {
         setUser({
           ...user,
           data: {
-            ...doc.data(),
+            ...d.data(),
             uid: authUser.uid,
             email: authUser.email,
             emailVerified: authUser.emailVerified,
