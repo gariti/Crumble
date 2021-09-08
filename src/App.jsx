@@ -1,6 +1,5 @@
 // import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline'
-import React from 'react'
 // import IconButton from '@material-ui/core/IconButton';
 // import Toolbar from '@material-ui/core/Toolbar';
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles'
@@ -8,6 +7,7 @@ import { ThemeProvider, makeStyles } from '@material-ui/core/styles'
 // import { UserContext } from 'context/UserContext';
 import 'firebase/auth'
 import 'firebase/firestore'
+import React from 'react'
 // import React, { useEffect, useState, useContext } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 

@@ -1,5 +1,6 @@
+import { getFirestore, doc, getDoc } from 'firebase/firestore'
 import React, { useEffect, useState, useContext } from 'react'
-import { getFirestore, doc } from 'firebase/firestore'
+
 import { AuthContext } from './AuthContext'
 
 export const UserContext = React.createContext()
@@ -25,7 +26,7 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     if (user.docRef) {
-      user.docRef.get().then((d) => {
+      getDoc(user.docRef).then((d) => {
         setUser({
           ...user,
           data: {

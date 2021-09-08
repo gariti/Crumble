@@ -104,6 +104,7 @@
     "@babel/eslint-parser": "^7.15.0",
     "@babel/plugin-syntax-jsx": "^7.14.5",
     "@babel/preset-react": "^7.14.5",
+    "@trivago/prettier-plugin-sort-imports": "^2.0.4",
     "babel-loader": "^8.2.2",
     "babel-plugin-named-asset-import": "^0.3.7",
     "eslint": "^7.32.0",
@@ -122,7 +123,6 @@
       }
     }
   },
-  "prettier": "@imaginary-cloud/prettier-config",
   "jest": {
     "roots": [
       "<rootDir>/src"
