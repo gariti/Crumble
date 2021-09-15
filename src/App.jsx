@@ -21,7 +21,6 @@ import Home from './views/Home/Home'
 import LandingPage from './views/LandingPage/LandingPage'
 import LoginPage from './views/LoginPage/LoginPage'
 import ProfilePage from './views/ProfilePage/ProfilePage'
-import SignUpPage from './views/SignUpPage/SignUpPage'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,7 +51,6 @@ export default function App() {
                   <div>
                     <Route exact path="/landing" component={LandingPage} />
                     <Route exact path="/login" component={LoginPage} />
-                    <Route exact path="/signup" component={SignUpPage} />
                     <PrivateRoute exact path="/" component={Home} />
                     <PrivateRoute
                       exact

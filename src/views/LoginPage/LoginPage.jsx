@@ -1,39 +1,17 @@
 /* eslint-disable no-console */
-import Avatar from '@material-ui/core/Avatar'
 import Box from '@material-ui/core/Box'
-import Button from '@material-ui/core/Button'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Grid from '@material-ui/core/Grid'
-import Link from '@material-ui/core/Link'
 import Paper from '@material-ui/core/Paper'
-import TextField from '@material-ui/core/TextField'
-import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
-import Alert from '@material-ui/lab/Alert'
 import backgroundImage from 'assets/img/free/biryani.jpg'
-import React, { useContext } from 'react'
-import { useForm } from 'react-hook-form'
-import { Redirect, withRouter, useHistory } from 'react-router-dom'
-
-import { AuthContext } from '../../context/AuthContext'
-import firebase from '../../firebase/Firebase'
-
-// import Checkbox from '@material-ui/core/Checkbox';
-
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="/">
-        Souk
-      </Link>{' '}
-      {new Date().getFullYear()}.
-    </Typography>
-  )
-}
+import { Copyright } from 'components/Copyright'
+// import ForgotPassword from 'components/Forms/ForgotPassword'
+import Login from 'components/Forms/Login'
+import SignUp from 'components/Forms/SignUp'
+import { AuthContext } from 'context/AuthContext'
+import React, { useContext, useState } from 'react'
+import { useHistory, withRouter } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,47 +33,17 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
 }))
 
 function LoginPage() {
   const classes = useStyles()
-
-  const { register, handleSubmit, errors, setError } = useForm({
-    mode: 'onBlur',
-  })
-  const history = useHistory()
+  const [form, setForm] = useState('login')
   const { authUser } = useContext(AuthContext)
-
-  const onSubmit = async (values) => {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(values.email, values.password)
-      .then(() => {
-        console.log('log in success')
-        history.push('/')
-      })
-      .catch((error) => {
-        setError('firebase', {
-          type: 'manual',
-          message: error.message,
-        })
-        console.error('Failed to Log in: ', error.message)
-      })
-  }
+  const history = useHistory()
 
   if (authUser) {
-    return <Redirect to="/" />
+    // already logged in
+    history.push('/')
   }
 
   return (
@@ -103,93 +51,11 @@ function LoginPage() {
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-
-          <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              inputRef={register({
-                required: true,
-                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              })}
-            />
-
-            {errors.email && errors.email.type === 'required' && (
-              <Alert severity="error">
-                Email address is required to log in
-              </Alert>
-            )}
-
-            {errors.email && errors.email.type === 'pattern' && (
-              <Alert severity="error">Email is not in a correct format</Alert>
-            )}
-
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              inputRef={register({
-                required: true,
-                minLength: 6,
-              })}
-            />
-
-            {errors.password && errors.password.type === 'required' && (
-              <Alert severity="error">Password is required</Alert>
-            )}
-
-            {errors.firebase && <p>{errors.firebase.message}</p>}
-
-            {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            /> */}
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              {/* <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid> */}
-              <Grid item>
-                <Link href="/signup" variant="body2">
-                  Don&apos;t have an account? Sign Up
-                </Link>
-              </Grid>
-            </Grid>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </form>
-        </div>
+        {form === 'login' && <Login setForm={setForm} />}
+        {form === 'signup' && <SignUp setForm={setForm} />}
+        <Box mt={5}>
+          <Copyright />
+        </Box>
       </Grid>
     </Grid>
   )

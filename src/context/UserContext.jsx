@@ -12,17 +12,17 @@ export const UserProvider = ({ children }) => {
     loading: true,
     docRef: null,
   })
-  const { authUser } = useContext(AuthContext)
+  const { fbUser, auth } = useContext(AuthContext)
   const db = getFirestore()
 
   useEffect(() => {
-    if (authUser) {
+    if (fbUser) {
       setUser({
         ...user,
-        docRef: doc(db, 'users', authUser.uid),
+        docRef: doc(db, 'users', fbUser.uid),
       })
     }
-  }, [authUser])
+  }, [fbUser])
 
   useEffect(() => {
     if (user.docRef) {
@@ -31,9 +31,9 @@ export const UserProvider = ({ children }) => {
           ...user,
           data: {
             ...d.data(),
-            uid: authUser.uid,
-            email: authUser.email,
-            emailVerified: authUser.emailVerified,
+            uid: fbUser.uid,
+            email: fbUser.email,
+            emailVerified: fbUser.emailVerified,
           },
           loading: false,
         })
@@ -43,7 +43,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     // eslint-disable-next-line prettier/prettier
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, auth }}>
       {children}
     </UserContext.Provider>
   )

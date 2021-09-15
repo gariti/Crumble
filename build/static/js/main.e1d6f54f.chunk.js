@@ -708,283 +708,281 @@
             return e.apply(this, arguments)
           }
         })()
-        return (
-          !d &&
-          Object(y.jsx)('div', {
+        return !d &&
+        Object(y.jsx)('div', {
+          className: e.root,
+          children: Object(y.jsxs)(F.a, {
+            container: !0,
+            component: 'main',
             className: e.root,
-            children: Object(y.jsxs)(F.a, {
-              container: !0,
-              component: 'main',
-              className: e.root,
-              children: [
-                Object(y.jsx)(s.a, {}),
-                Object(y.jsx)(F.a, {
-                  item: !0,
-                  xs: !1,
-                  sm: 4,
-                  md: 7,
-                  className: e.image,
+            children: [
+              Object(y.jsx)(s.a, {}),
+              Object(y.jsx)(F.a, {
+                item: !0,
+                xs: !1,
+                sm: 4,
+                md: 7,
+                className: e.image,
+              }),
+              Object(y.jsx)(F.a, {
+                item: !0,
+                xs: 12,
+                sm: 8,
+                md: 5,
+                component: de.a,
+                elevation: 6,
+                square: !0,
+                children: Object(y.jsxs)('div', {
+                  className: e.paper,
+                  children: [
+                    Object(y.jsx)(se.a, {
+                      className: e.avatar,
+                      children: Object(y.jsx)(be.a, {}),
+                    }),
+                    Object(y.jsx)(O.a, {
+                      component: 'h1',
+                      variant: 'h5',
+                      children: 'Join Your Community!',
+                    }),
+                    Object(y.jsx)(O.a, {
+                      component: 'h5',
+                      variant: 'subtitle1',
+                      children:
+                        'Please provide a little bit more about yourself so others can get to know you.',
+                    }),
+                    Object(y.jsx)('form', {
+                      className: e.form,
+                      onSubmit: m(u),
+                      children: Object(y.jsxs)(F.a, {
+                        container: !0,
+                        spacing: 1,
+                        children: [
+                          Object(y.jsxs)(F.a, {
+                            item: !0,
+                            xs: 4,
+                            children: [
+                              Object(y.jsx)(O.a, { children: 'First Name:' }),
+                              Object(y.jsx)(le.a, {
+                                variant: 'outlined',
+                                margin: 'normal',
+                                name: 'firstName',
+                                inputRef: x({
+                                  maxLength: 60,
+                                  minLength: 2,
+                                  pattern: /^[a-z]+$/i,
+                                  required: !0,
+                                }),
+                              }),
+                            ],
+                          }),
+                          g.firstName &&
+                            'required' === g.firstName.type &&
+                            Object(y.jsx)(xe.a, {
+                              severity: 'error',
+                              children: 'First Name is required',
+                            }),
+                          g.firstName &&
+                            'minLength' === g.firstName.type &&
+                            Object(y.jsx)(xe.a, {
+                              severity: 'error',
+                              children:
+                                'First name must be at least 2 characters',
+                            }),
+                          g.firstName &&
+                            'pattern' === g.firstName.type &&
+                            Object(y.jsx)(xe.a, {
+                              severity: 'error',
+                              children: 'First name must be letters only',
+                            }),
+                          Object(y.jsxs)(F.a, {
+                            item: !0,
+                            xs: 4,
+                            children: [
+                              Object(y.jsx)(O.a, { children: 'Last Name:' }),
+                              Object(y.jsx)(le.a, {
+                                variant: 'outlined',
+                                margin: 'normal',
+                                name: 'lastName',
+                                inputRef: x({
+                                  minLength: 2,
+                                  pattern: /^[a-z]+$/i,
+                                  required: !0,
+                                }),
+                              }),
+                            ],
+                          }),
+                          g.lastName &&
+                            'required' === g.lastName.type &&
+                            Object(y.jsx)(xe.a, {
+                              severity: 'error',
+                              children: 'Last name is required',
+                            }),
+                          g.lastName &&
+                            'minLength' === g.lastName.type &&
+                            Object(y.jsx)(xe.a, {
+                              severity: 'error',
+                              children:
+                                'Last name must be at least 2 characters',
+                            }),
+                          g.lastName &&
+                            'pattern' === g.lastName.type &&
+                            Object(y.jsx)(xe.a, {
+                              severity: 'error',
+                              children: 'Last name must be letters only',
+                            }),
+                          Object(y.jsxs)(F.a, {
+                            item: !0,
+                            xs: 4,
+                            children: [
+                              Object(y.jsx)(O.a, { children: 'Nickname:' }),
+                              Object(y.jsx)(le.a, {
+                                variant: 'outlined',
+                                margin: 'normal',
+                                name: 'nickname',
+                                inputRef: x({ required: !1 }),
+                              }),
+                              g.nickname &&
+                                'minLength' === g.nickname.type &&
+                                Object(y.jsx)(xe.a, {
+                                  severity: 'error',
+                                  children:
+                                    'Last name must be at least 2 characters',
+                                }),
+                            ],
+                          }),
+                          Object(y.jsxs)(F.a, {
+                            item: !0,
+                            xs: 12,
+                            children: [
+                              Object(y.jsx)(O.a, {
+                                children: 'Street Address:',
+                              }),
+                              Object(y.jsx)(le.a, {
+                                variant: 'outlined',
+                                margin: 'normal',
+                                name: 'address1',
+                                inputRef: x({ required: !1 }),
+                              }),
+                            ],
+                          }),
+                          g.address1 &&
+                            'minLength' === g.address1.type &&
+                            Object(y.jsx)(xe.a, {
+                              severity: 'error',
+                              children: 'Address must be valid',
+                            }),
+                          Object(y.jsxs)(F.a, {
+                            item: !0,
+                            xs: 12,
+                            children: [
+                              Object(y.jsx)(O.a, {
+                                children: 'Street Address Line 2:',
+                              }),
+                              Object(y.jsx)(le.a, {
+                                variant: 'outlined',
+                                margin: 'normal',
+                                name: 'address2',
+                                inputRef: x({ required: !1 }),
+                              }),
+                            ],
+                          }),
+                          g.address2 &&
+                            'minLength' === g.address2.type &&
+                            Object(y.jsx)(xe.a, {
+                              severity: 'error',
+                              children: 'Address must be valid',
+                            }),
+                          Object(y.jsxs)(F.a, {
+                            item: !0,
+                            xs: 4,
+                            children: [
+                              Object(y.jsx)(O.a, { children: 'City' }),
+                              Object(y.jsx)(le.a, {
+                                variant: 'outlined',
+                                margin: 'normal',
+                                name: 'city',
+                                inputRef: x({ required: !1 }),
+                              }),
+                            ],
+                          }),
+                          Object(y.jsxs)(F.a, {
+                            item: !0,
+                            xs: 4,
+                            children: [
+                              Object(y.jsx)(O.a, {
+                                children: 'State/Province',
+                              }),
+                              Object(y.jsx)(le.a, {
+                                variant: 'outlined',
+                                margin: 'normal',
+                                name: 'state',
+                                inputRef: x({ required: !1 }),
+                              }),
+                            ],
+                          }),
+                          Object(y.jsxs)(F.a, {
+                            item: !0,
+                            xs: 4,
+                            children: [
+                              Object(y.jsx)(O.a, { children: 'Postal Code' }),
+                              Object(y.jsx)(le.a, {
+                                variant: 'outlined',
+                                margin: 'normal',
+                                name: 'postal',
+                                inputRef: x({
+                                  maxLength: 5,
+                                  minLength: 5,
+                                  required: !1,
+                                }),
+                              }),
+                            ],
+                          }),
+                          Object(y.jsxs)(F.a, {
+                            item: !0,
+                            xs: 6,
+                            children: [
+                              Object(y.jsx)(O.a, { children: 'Country' }),
+                              Object(y.jsx)(le.a, {
+                                variant: 'outlined',
+                                margin: 'normal',
+                                name: 'country',
+                                inputRef: x({ required: !1 }),
+                              }),
+                            ],
+                          }),
+                          Object(y.jsxs)(F.a, {
+                            item: !0,
+                            xs: 12,
+                            children: [
+                              Object(y.jsx)(O.a, { children: 'Bio:' }),
+                              Object(y.jsx)(le.a, {
+                                variant: 'outlined',
+                                margin: 'normal',
+                                fullWidth: !0,
+                                name: 'bio',
+                                inputRef: x({ maxLength: 1e3, required: !1 }),
+                              }),
+                            ],
+                          }),
+                          Object(y.jsx)(F.a, {
+                            item: !0,
+                            xs: 'auto',
+                            children: Object(y.jsx)(j.a, {
+                              variant: 'contained',
+                              color: 'primary',
+                              type: 'submit',
+                              children: 'Submit',
+                            }),
+                          }),
+                        ],
+                      }),
+                    }),
+                  ],
                 }),
-                Object(y.jsx)(F.a, {
-                  item: !0,
-                  xs: 12,
-                  sm: 8,
-                  md: 5,
-                  component: de.a,
-                  elevation: 6,
-                  square: !0,
-                  children: Object(y.jsxs)('div', {
-                    className: e.paper,
-                    children: [
-                      Object(y.jsx)(se.a, {
-                        className: e.avatar,
-                        children: Object(y.jsx)(be.a, {}),
-                      }),
-                      Object(y.jsx)(O.a, {
-                        component: 'h1',
-                        variant: 'h5',
-                        children: 'Join Your Community!',
-                      }),
-                      Object(y.jsx)(O.a, {
-                        component: 'h5',
-                        variant: 'subtitle1',
-                        children:
-                          'Please provide a little bit more about yourself so others can get to know you.',
-                      }),
-                      Object(y.jsx)('form', {
-                        className: e.form,
-                        onSubmit: m(u),
-                        children: Object(y.jsxs)(F.a, {
-                          container: !0,
-                          spacing: 1,
-                          children: [
-                            Object(y.jsxs)(F.a, {
-                              item: !0,
-                              xs: 4,
-                              children: [
-                                Object(y.jsx)(O.a, { children: 'First Name:' }),
-                                Object(y.jsx)(le.a, {
-                                  variant: 'outlined',
-                                  margin: 'normal',
-                                  name: 'firstName',
-                                  inputRef: x({
-                                    maxLength: 60,
-                                    minLength: 2,
-                                    pattern: /^[a-z]+$/i,
-                                    required: !0,
-                                  }),
-                                }),
-                              ],
-                            }),
-                            g.firstName &&
-                              'required' === g.firstName.type &&
-                              Object(y.jsx)(xe.a, {
-                                severity: 'error',
-                                children: 'First Name is required',
-                              }),
-                            g.firstName &&
-                              'minLength' === g.firstName.type &&
-                              Object(y.jsx)(xe.a, {
-                                severity: 'error',
-                                children:
-                                  'First name must be at least 2 characters',
-                              }),
-                            g.firstName &&
-                              'pattern' === g.firstName.type &&
-                              Object(y.jsx)(xe.a, {
-                                severity: 'error',
-                                children: 'First name must be letters only',
-                              }),
-                            Object(y.jsxs)(F.a, {
-                              item: !0,
-                              xs: 4,
-                              children: [
-                                Object(y.jsx)(O.a, { children: 'Last Name:' }),
-                                Object(y.jsx)(le.a, {
-                                  variant: 'outlined',
-                                  margin: 'normal',
-                                  name: 'lastName',
-                                  inputRef: x({
-                                    minLength: 2,
-                                    pattern: /^[a-z]+$/i,
-                                    required: !0,
-                                  }),
-                                }),
-                              ],
-                            }),
-                            g.lastName &&
-                              'required' === g.lastName.type &&
-                              Object(y.jsx)(xe.a, {
-                                severity: 'error',
-                                children: 'Last name is required',
-                              }),
-                            g.lastName &&
-                              'minLength' === g.lastName.type &&
-                              Object(y.jsx)(xe.a, {
-                                severity: 'error',
-                                children:
-                                  'Last name must be at least 2 characters',
-                              }),
-                            g.lastName &&
-                              'pattern' === g.lastName.type &&
-                              Object(y.jsx)(xe.a, {
-                                severity: 'error',
-                                children: 'Last name must be letters only',
-                              }),
-                            Object(y.jsxs)(F.a, {
-                              item: !0,
-                              xs: 4,
-                              children: [
-                                Object(y.jsx)(O.a, { children: 'Nickname:' }),
-                                Object(y.jsx)(le.a, {
-                                  variant: 'outlined',
-                                  margin: 'normal',
-                                  name: 'nickname',
-                                  inputRef: x({ required: !1 }),
-                                }),
-                                g.nickname &&
-                                  'minLength' === g.nickname.type &&
-                                  Object(y.jsx)(xe.a, {
-                                    severity: 'error',
-                                    children:
-                                      'Last name must be at least 2 characters',
-                                  }),
-                              ],
-                            }),
-                            Object(y.jsxs)(F.a, {
-                              item: !0,
-                              xs: 12,
-                              children: [
-                                Object(y.jsx)(O.a, {
-                                  children: 'Street Address:',
-                                }),
-                                Object(y.jsx)(le.a, {
-                                  variant: 'outlined',
-                                  margin: 'normal',
-                                  name: 'address1',
-                                  inputRef: x({ required: !1 }),
-                                }),
-                              ],
-                            }),
-                            g.address1 &&
-                              'minLength' === g.address1.type &&
-                              Object(y.jsx)(xe.a, {
-                                severity: 'error',
-                                children: 'Address must be valid',
-                              }),
-                            Object(y.jsxs)(F.a, {
-                              item: !0,
-                              xs: 12,
-                              children: [
-                                Object(y.jsx)(O.a, {
-                                  children: 'Street Address Line 2:',
-                                }),
-                                Object(y.jsx)(le.a, {
-                                  variant: 'outlined',
-                                  margin: 'normal',
-                                  name: 'address2',
-                                  inputRef: x({ required: !1 }),
-                                }),
-                              ],
-                            }),
-                            g.address2 &&
-                              'minLength' === g.address2.type &&
-                              Object(y.jsx)(xe.a, {
-                                severity: 'error',
-                                children: 'Address must be valid',
-                              }),
-                            Object(y.jsxs)(F.a, {
-                              item: !0,
-                              xs: 4,
-                              children: [
-                                Object(y.jsx)(O.a, { children: 'City' }),
-                                Object(y.jsx)(le.a, {
-                                  variant: 'outlined',
-                                  margin: 'normal',
-                                  name: 'city',
-                                  inputRef: x({ required: !1 }),
-                                }),
-                              ],
-                            }),
-                            Object(y.jsxs)(F.a, {
-                              item: !0,
-                              xs: 4,
-                              children: [
-                                Object(y.jsx)(O.a, {
-                                  children: 'State/Province',
-                                }),
-                                Object(y.jsx)(le.a, {
-                                  variant: 'outlined',
-                                  margin: 'normal',
-                                  name: 'state',
-                                  inputRef: x({ required: !1 }),
-                                }),
-                              ],
-                            }),
-                            Object(y.jsxs)(F.a, {
-                              item: !0,
-                              xs: 4,
-                              children: [
-                                Object(y.jsx)(O.a, { children: 'Postal Code' }),
-                                Object(y.jsx)(le.a, {
-                                  variant: 'outlined',
-                                  margin: 'normal',
-                                  name: 'postal',
-                                  inputRef: x({
-                                    maxLength: 5,
-                                    minLength: 5,
-                                    required: !1,
-                                  }),
-                                }),
-                              ],
-                            }),
-                            Object(y.jsxs)(F.a, {
-                              item: !0,
-                              xs: 6,
-                              children: [
-                                Object(y.jsx)(O.a, { children: 'Country' }),
-                                Object(y.jsx)(le.a, {
-                                  variant: 'outlined',
-                                  margin: 'normal',
-                                  name: 'country',
-                                  inputRef: x({ required: !1 }),
-                                }),
-                              ],
-                            }),
-                            Object(y.jsxs)(F.a, {
-                              item: !0,
-                              xs: 12,
-                              children: [
-                                Object(y.jsx)(O.a, { children: 'Bio:' }),
-                                Object(y.jsx)(le.a, {
-                                  variant: 'outlined',
-                                  margin: 'normal',
-                                  fullWidth: !0,
-                                  name: 'bio',
-                                  inputRef: x({ maxLength: 1e3, required: !1 }),
-                                }),
-                              ],
-                            }),
-                            Object(y.jsx)(F.a, {
-                              item: !0,
-                              xs: 'auto',
-                              children: Object(y.jsx)(j.a, {
-                                variant: 'contained',
-                                color: 'primary',
-                                type: 'submit',
-                                children: 'Submit',
-                              }),
-                            }),
-                          ],
-                        }),
-                      }),
-                    ],
-                  }),
-                }),
-              ],
-            }),
-          })
-        )
+              }),
+            ],
+          }),
+        });
       })
       var ue = Object(b.g)(function () {
           var e = Object(r.useContext)(re).user,
@@ -1236,7 +1234,7 @@
                     }),
                   }),
                 ],
-              })
+              });
         }),
         Se = t.p + 'static/media/garrettprofile.c7ed4936.jpg',
         Ne = Object(f.a)(
@@ -2086,7 +2084,7 @@
                 }),
               }),
             ],
-          })
+          });
         }),
         ta = Object(d.a)(function (e) {
           return {

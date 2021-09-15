@@ -1,12 +1,12 @@
 import Button from '@material-ui/core/Button'
-import { getAuth, signOut } from 'firebase/auth'
+import { signOut } from 'firebase/auth'
 import React, { useContext, useState, useEffect } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 
 import { UserContext } from '../../context/UserContext'
 
 function Home() {
-  const { user } = useContext(UserContext)
+  const { user, auth } = useContext(UserContext)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function Home() {
         <Button
           variant="contained"
           color="primary"
-          onClick={() => signOut(getAuth())}
+          onClick={() => signOut(auth)}
         >
           Sign out
         </Button>

@@ -141,7 +141,7 @@ function EditProfile() {
                       variant="outlined"
                       margin="normal"
                       name="firstName"
-                      inputRef={register({
+                      {...register({
                         maxLength: 60,
                         minLength: 2,
                         pattern: /^[a-z]+$/i,
@@ -171,7 +171,7 @@ function EditProfile() {
                       variant="outlined"
                       margin="normal"
                       name="lastName"
-                      inputRef={register({
+                      {...register({
                         minLength: 2,
                         pattern: /^[a-z]+$/i,
                         required: true,
@@ -197,7 +197,7 @@ function EditProfile() {
                       variant="outlined"
                       margin="normal"
                       name="nickname"
-                      inputRef={register({ required: false })}
+                      {...register({ required: false })}
                     />
 
                     {errors.nickname &&
@@ -214,7 +214,7 @@ function EditProfile() {
                       variant="outlined"
                       margin="normal"
                       name="address1"
-                      inputRef={register({ required: false })}
+                      {...register({ required: false })}
                     />
                   </Grid>
                   {errors.address1 && errors.address1.type === 'minLength' && (
@@ -227,7 +227,7 @@ function EditProfile() {
                       variant="outlined"
                       margin="normal"
                       name="address2"
-                      inputRef={register({ required: false })}
+                      {...register({ required: false })}
                     />
                   </Grid>
                   {errors.address2 && errors.address2.type === 'minLength' && (
@@ -240,7 +240,7 @@ function EditProfile() {
                       variant="outlined"
                       margin="normal"
                       name="city"
-                      inputRef={register({ required: false })}
+                      {...register({ required: false })}
                     />
                   </Grid>
 
@@ -250,7 +250,7 @@ function EditProfile() {
                       variant="outlined"
                       margin="normal"
                       name="state"
-                      inputRef={register({ required: false })}
+                      {...register({ required: false })}
                     />
                   </Grid>
 
@@ -260,7 +260,7 @@ function EditProfile() {
                       variant="outlined"
                       margin="normal"
                       name="postal"
-                      inputRef={register({
+                      {...register({
                         maxLength: 5,
                         minLength: 5,
                         required: false,
@@ -274,7 +274,7 @@ function EditProfile() {
                       variant="outlined"
                       margin="normal"
                       name="country"
-                      inputRef={register({ required: false })}
+                      {...register({ required: false })}
                     />
                   </Grid>
 
@@ -285,7 +285,7 @@ function EditProfile() {
                       margin="normal"
                       fullWidth
                       name="bio"
-                      inputRef={register({
+                      {...register({
                         maxLength: 1000,
                         required: false,
                       })}
