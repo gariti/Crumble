@@ -3,12 +3,12 @@ import { withRouter, Redirect } from 'react-router-dom'
 import ProductHero from 'views/LandingPage/ProductHero'
 import ProductHowItWorks from 'views/LandingPage/ProductHowItWorks'
 
-import { AuthContext } from '../../context/AuthContext'
+import { UserContext } from '../../context/UserContext'
 
 function LandingPage() {
-  const { authUser } = useContext(AuthContext)
+  const { user } = useContext(UserContext)
 
-  if (authUser) {
+  if (user) {
     return <Redirect to="/" />
   }
 

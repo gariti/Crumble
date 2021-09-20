@@ -9,8 +9,8 @@ import { Copyright } from 'components/Copyright'
 // import ForgotPassword from 'components/Forms/ForgotPassword'
 import Login from 'components/Forms/Login'
 import SignUp from 'components/Forms/SignUp'
-import { AuthContext } from 'context/AuthContext'
-import React, { useContext, useState } from 'react'
+import { UserContext } from 'context/UserContext'
+import React, { useContext, useState, useEffect } from 'react'
 import { useHistory, withRouter } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
@@ -38,13 +38,15 @@ const useStyles = makeStyles((theme) => ({
 function LoginPage() {
   const classes = useStyles()
   const [form, setForm] = useState('login')
-  const { authUser } = useContext(AuthContext)
+  const { user } = useContext(UserContext)
   const history = useHistory()
 
-  if (authUser) {
-    // already logged in
-    history.push('/')
-  }
+  useEffect(() => {
+    if (user) {
+      // already logged in
+      history.push('/')
+    }
+  }, [user])
 
   return (
     <Grid container component="main" className={classes.root}>

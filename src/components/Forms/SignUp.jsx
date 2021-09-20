@@ -7,13 +7,13 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Alert from '@material-ui/lab/Alert'
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { createNewUser } from 'Firebase/firestore'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 
-import { formStyles } from './formStyles'
+import { FormStyles } from './FormStyles'
 
 function SignUp(props) {
   SignUp.propTypes = {
@@ -24,22 +24,21 @@ function SignUp(props) {
     register,
     handleSubmit,
     setError,
-    // clearErrors,
     formState: { errors },
   } = useForm({ reValidateMode: 'onSubmit' })
 
   const [loading, setLoading] = useState(false)
-  const classes = formStyles()
+  const classes = FormStyles()
   const history = useHistory()
   const nameMaxLength = 50
   const nameMinLength = 2
   const passwordMinLength = 6
 
-  const createFirebaseUser = async (values, event) => {
+  const onSubmit = async (values, event) => {
     event.preventDefault()
     setLoading(true)
 
-    createUserWithEmailAndPassword(getAuth(), values.email, values.password)
+    createNewUser(values)
       .then(() => {
         history.push('/')
       })
@@ -69,10 +68,7 @@ function SignUp(props) {
       <Typography component="h1" variant="h5">
         Welcome! Please register below.
       </Typography>
-      <form
-        className={classes.form}
-        onSubmit={handleSubmit(createFirebaseUser)}
-      >
+      <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
         {/* First Name */}
         <TextField
           {...register('firstName', {

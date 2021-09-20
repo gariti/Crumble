@@ -1,21 +1,16 @@
-// import Button from '@material-ui/core/Button';
+/* eslint-disable no-console */
 import CssBaseline from '@material-ui/core/CssBaseline'
-// import IconButton from '@material-ui/core/IconButton';
-// import Toolbar from '@material-ui/core/Toolbar';
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles'
-// import MenuIcon from '@material-ui/icons/Menu';
-// import { UserContext } from 'context/UserContext';
-import 'firebase/auth'
-import 'firebase/firestore'
-import React from 'react'
-// import React, { useEffect, useState, useContext } from 'react';
+import { getUserData } from 'Firebase/firestore'
+import { UserProvider } from 'context/UserContext'
+import { signOut, getAuth } from 'firebase/auth'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
+import { authObserver } from './Firebase/auth'
 import PrivateRoute from './Routes/PrivateRoute'
 import Theme from './Theme'
 import SoukAppBar from './components/SoukAppBar'
-import { AuthProvider } from './context/AuthContext'
-import { UserProvider } from './context/UserContext'
 import EditProfile from './views/EditProfile/EditProfile'
 import Home from './views/Home/Home'
 import LandingPage from './views/LandingPage/LandingPage'
@@ -36,39 +31,68 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {
   const classes = useStyles()
+  const [auth, setAuth] = useState()
+  const [user, setUser] = useState({ data: null, uid: null })
+
+  useEffect(() => {
+    const unsubscribe = authObserver(setAuth)
+    return () => {
+      unsubscribe()
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!user.data && auth) {
+      getUserData(auth.uid).then((data) => {
+        if (data)
+          setUser({
+            ...auth,
+            data,
+          })
+        else {
+          // TODO: No should handle this a better way...
+          // scrub the bad account and notify user to reregister?
+          console.log(
+            `Something went wrong, user ${user.uid}
+       details were not found in the database. User will be signed out`,
+          )
+          signOut(getAuth())
+        }
+      })
+    }
+  }, [auth])
 
   return (
-    <div className={classes.root}>
-      <AuthProvider>
-        <UserProvider>
-          <ThemeProvider theme={Theme}>
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+    <UserProvider user={user}>
+      <div className={classes.root}>
+        <ThemeProvider theme={Theme}>
+          <Router>
             <CssBaseline />
-            <Router>
-              <div className="App">
-                <header className="App-header">
-                  <SoukAppBar />
-                  <div>
-                    <Route exact path="/landing" component={LandingPage} />
-                    <Route exact path="/login" component={LoginPage} />
-                    <PrivateRoute exact path="/" component={Home} />
-                    <PrivateRoute
-                      exact
-                      path="/profile"
-                      component={ProfilePage}
-                    />
-                    <PrivateRoute
-                      exact
-                      path="/editprofile"
-                      component={EditProfile}
-                    />
-                  </div>
-                </header>
-              </div>
-            </Router>
-          </ThemeProvider>
-        </UserProvider>
-      </AuthProvider>
-    </div>
+            <div className="App">
+              <header className="App-header">
+                <SoukAppBar />
+                <div>
+                  <Route exact path="/landing" component={LandingPage} />
+                  <Route exact path="/login" component={LoginPage} />
+                  <PrivateRoute exact path="/" component={Home} user={user} />
+                  <PrivateRoute
+                    exact
+                    path="/profile"
+                    component={ProfilePage}
+                    user={user}
+                  />
+                  <PrivateRoute
+                    exact
+                    path="/editprofile"
+                    component={EditProfile}
+                    user={user}
+                  />
+                </div>
+              </header>
+            </div>
+          </Router>
+        </ThemeProvider>
+      </div>
+    </UserProvider>
   )
 }

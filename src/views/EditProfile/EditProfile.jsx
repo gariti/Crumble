@@ -10,11 +10,10 @@ import { makeStyles } from '@material-ui/core/styles'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Alert from '@material-ui/lab/Alert'
 import buffet from 'assets/img/free/buffet.jpg'
+import { UserContext } from 'context/UserContext'
 import React, { useContext, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory, withRouter } from 'react-router-dom'
-
-import { UserContext } from '../../context/UserContext'
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -51,12 +50,10 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function EditProfile() {
-  // const { authUser } = useContext(AuthContext);
-  // const theme = useTheme();
   const classes = useStyles()
-  const { user, setUser } = useContext(UserContext)
+  const user = useContext(UserContext)
   const history = useHistory()
-  const [loading, setLoading] = useState(true)
+  const [loading] = useState(true)
   const defaultFormValues = {
     address: '',
     bio: '',
@@ -71,11 +68,8 @@ function EditProfile() {
   })
 
   useEffect(() => {
-    if (!user.loading) {
-      setLoading(user.loading)
-      reset(user.data)
-    }
-  }, [user, reset])
+    reset(user.data)
+  }, [user])
 
   const updateUser = async (values) => {
     const newUserData = { ...user.data, ...values }
@@ -83,7 +77,7 @@ function EditProfile() {
     await user.docRef.update({ ...newUserData }).catch((error) => {
       console.error('Error updating document:', error)
     })
-    setUser({ ...user, data: newUserData })
+    // setUser({ ...user, data: newUserData }) // TODO: Add firebase function
     console.log('Document updated:', user.docRef.id)
     history.push('/profile')
   }

@@ -13,7 +13,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 
-import { formStyles } from './formStyles'
+import { FormStyles } from './FormStyles'
 
 function Login(props) {
   Login.propTypes = {
@@ -28,7 +28,7 @@ function Login(props) {
   } = useForm()
 
   const [loading, setLoading] = useState(false)
-  const classes = formStyles()
+  const classes = FormStyles()
   const auth = getAuth()
   const history = useHistory()
 

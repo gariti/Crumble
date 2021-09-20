@@ -1,10 +1,10 @@
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 import productHowItWorks1 from 'assets/img/free/map.svg'
 import productHowItWorks2 from 'assets/img/free/order.svg'
 import productHowItWorks3 from 'assets/img/free/walk.svg'
-import Typography from 'components/Typography'
 import PropTypes from 'prop-types'
 import React from 'react'
 

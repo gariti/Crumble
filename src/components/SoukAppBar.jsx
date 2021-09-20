@@ -1,14 +1,17 @@
 /* eslint-disable no-constant-condition */
 import AppBar from '@material-ui/core/AppBar'
+import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
+import Menu from '@material-ui/core/Menu'
 import Toolbar from '@material-ui/core/Toolbar'
 import { makeStyles } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu'
-// import { UserContext } from 'context/UserContext';
+import StringAvatar from 'components/StringAvatar'
+import { UserContext } from 'context/UserContext'
 import 'firebase/auth'
 import 'firebase/firestore'
-import React from 'react'
+import React, { useContext } from 'react'
 // import React, { useState, useContext } from 'react';
 import { BrowserRouter as Link } from 'react-router-dom'
 
@@ -26,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
 
 function SoukAppBar() {
   const classes = useStyles()
+  const user = useContext(UserContext)
+
   // const { user } = useContext(UserContext);
   // const [loading, setLoading] = useState(true);
 
@@ -41,13 +46,17 @@ function SoukAppBar() {
         >
           <MenuIcon />
         </IconButton>
-        {true ? (
+        {user.data ? (
+          <Avatar
+            {...StringAvatar(`${user.data.firstName} ${user.data.lastName}`)}
+          />
+        ) : (
           <Link to="/login">
             <Button varient="contained" color="secondary">
               Login
             </Button>
           </Link>
-        ) : null}
+        )}
       </Toolbar>
     </AppBar>
   )

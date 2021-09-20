@@ -1,4 +1,5 @@
 // import { Typography } from '@material-ui/core';
+import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
 // import {
 //   PhotoCameraOutlined,
@@ -12,7 +13,6 @@ import profile from 'assets/img/faces/garrettprofile.jpg'
 // import profilebg from 'assets/img/profile-bg.jpg';
 import styles from 'assets/jss/material-kit-react/views/profilePage'
 import classNames from 'classnames'
-import Button from 'components/CustomButtons/Button'
 import GridContainer from 'components/Grid/GridContainer'
 import GridItem from 'components/Grid/GridItem'
 // import Parallax from 'components/Parallax/Parallax.jsx';
