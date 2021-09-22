@@ -1,5 +1,6 @@
 export default function StringAvatar(name) {
   return {
+    // TODO fix not working css to display color
     sx: {
       bgcolor: stringToColor(name),
     },

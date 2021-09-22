@@ -43,9 +43,11 @@ export default function App() {
 
   useEffect(() => {
     if (!user.data && auth) {
+      // @ts-ignore
       getUserData(auth.uid).then((data) => {
         if (data)
           setUser({
+            // @ts-ignore
             ...auth,
             data,
           })
@@ -59,6 +61,11 @@ export default function App() {
           signOut(getAuth())
         }
       })
+    }
+
+    if (user.data && !auth) {
+      // User signed out
+      setUser({ data: null, uid: null })
     }
   }, [auth])
 

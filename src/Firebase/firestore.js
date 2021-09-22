@@ -5,13 +5,13 @@ import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
 
 const db = getFirestore(firebase)
 
-export const updateUser = async (uid, user) => {
-  const docRef = doc(db, 'users', uid)
+// export const updateUser = async (uid, user) => {
+//   const docRef = doc(db, 'users', uid)
 
-  await docRef.update({ ...user }).catch((error) => {
-    console.error('Error updating document:', error)
-  })
-}
+//   await docRef.update({ ...user }).catch((error) => {
+//     console.error('Error updating document:', error)
+//   })
+// }
 
 export const createNewUser = async (user) => {
   createUserWithEmailAndPassword(getAuth(), user.email, user.password).then(

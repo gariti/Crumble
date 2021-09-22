@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "react",
+    "checkJs": true,
     "baseUrl": "src"
   },
   "exclude": ["node_modules"]

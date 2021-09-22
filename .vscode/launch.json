@@ -8,15 +8,17 @@
       "name": "Launch Edge",
       "request": "launch",
       "type": "pwa-msedge",
-      "url": "http://localhost:8080",
-      "webRoot": "${workspaceFolder}"
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "runtimeExecutable": "/usr/bin/microsoft-edge-dev"
     },
     {
       "name": "Launch Chrome",
       "request": "launch",
       "type": "chrome",
       "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "${workspaceFolder}",
+      "trace": true
     }
   ]
 }

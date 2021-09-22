@@ -1,69 +1,68 @@
-import Avatar from '@material-ui/core/Avatar'
+import { Backdrop, Divider, ListItemIcon } from '@material-ui/core'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
-import React from 'react'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import Logout from '@mui/icons-material/Logout'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 
-export default function AvatarMenu() {
+import { ConfirmLogoutDialog } from './ConfirmLogoutDialog'
+
+ProfileMenu.propTypes = {
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
+  anchorEl: PropTypes.object,
+  setAnchorEl: PropTypes.func.isRequired,
+}
+
+export default function ProfileMenu({ open, setOpen, anchorEl, setAnchorEl }) {
+  const [logoutDialog, setLogoutDialog] = useState(false)
+
+  const handleClose = () => {
+    setOpen(false)
+    setAnchorEl(null)
+  }
+
+  const confirmSignOut = () => {
+    setLogoutDialog(true)
+  }
+
   return (
-    <Menu
-      anchorEl={anchorEl}
-      open={open}
-      onClose={handleClose}
-      onClick={handleClose}
-      PaperProps={{
-        elevation: 0,
-        sx: {
-          overflow: 'visible',
-          filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-          mt: 1.5,
-          '& .MuiAvatar-root': {
-            width: 32,
-            height: 32,
-            ml: -0.5,
-            mr: 1,
-          },
-          '&:before': {
-            content: '""',
-            display: 'block',
-            position: 'absolute',
-            top: 0,
-            right: 14,
-            width: 10,
-            height: 10,
-            bgcolor: 'background.paper',
-            transform: 'translateY(-50%) rotate(45deg)',
-            zIndex: 0,
-          },
-        },
-      }}
-      transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-      anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-    >
-      <MenuItem>
-        <Avatar /> Profile
-      </MenuItem>
-      <MenuItem>
-        <Avatar /> My account
-      </MenuItem>
-      <Divider />
-      <MenuItem>
-        <ListItemIcon>
-          <PersonAdd fontSize="small" />
-        </ListItemIcon>
-        Add another account
-      </MenuItem>
-      <MenuItem>
-        <ListItemIcon>
-          <Settings fontSize="small" />
-        </ListItemIcon>
-        Settings
-      </MenuItem>
-      <MenuItem>
-        <ListItemIcon>
-          <Logout fontSize="small" />
-        </ListItemIcon>
-        Logout
-      </MenuItem>
-    </Menu>
+    <div>
+      <Backdrop open={open} onClick={handleClose}>
+        {logoutDialog && (
+          <ConfirmLogoutDialog open={logoutDialog} setOpen={setLogoutDialog} />
+        )}
+      </Backdrop>
+      <Menu
+        anchorEl={anchorEl}
+        getContentAnchorEl={null}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'center' }}
+        open={open}
+        onClose={handleClose}
+        onClick={handleClose}
+      >
+        <MenuItem>
+          <ListItemIcon>
+            <AccountCircleIcon fontSize="small" />
+          </ListItemIcon>
+          Profile
+        </MenuItem>
+        <MenuItem>
+          <ListItemIcon>
+            <AccountCircleIcon fontSize="small" />
+          </ListItemIcon>
+          Edit Account
+        </MenuItem>
+        <Divider />
+        <MenuItem onClick={confirmSignOut}>
+          <ListItemIcon>
+            <Logout fontSize="small" />
+          </ListItemIcon>
+          Sign Out
+        </MenuItem>
+      </Menu>
+    </div>
   )
 }
