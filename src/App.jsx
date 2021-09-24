@@ -5,7 +5,7 @@ import { getUserData } from 'Firebase/firestore'
 import { UserProvider } from 'context/UserContext'
 import { signOut, getAuth } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { authObserver } from './Firebase/auth'
 import PrivateRoute from './Routes/PrivateRoute'
@@ -73,31 +73,34 @@ export default function App() {
     <UserProvider user={user}>
       <div className={classes.root}>
         <ThemeProvider theme={Theme}>
-          <Router>
-            <CssBaseline />
-            <div className="App">
-              <header className="App-header">
-                <SoukAppBar />
-                <div>
-                  <Route exact path="/landing" component={LandingPage} />
-                  <Route exact path="/login" component={LoginPage} />
-                  <PrivateRoute exact path="/" component={Home} user={user} />
-                  <PrivateRoute
-                    exact
-                    path="/profile"
-                    component={ProfilePage}
-                    user={user}
-                  />
-                  <PrivateRoute
-                    exact
-                    path="/editprofile"
-                    component={EditProfile}
-                    user={user}
-                  />
-                </div>
-              </header>
-            </div>
-          </Router>
+          <CssBaseline />
+          <div className="App">
+            <header className="App-header">
+              <div>
+                <Router>
+                  <SoukAppBar />
+
+                  <Switch>
+                    <Route exact path="/landing" component={LandingPage} />
+                    <Route exact path="/login" component={LoginPage} />
+                    <PrivateRoute exact path="/" component={Home} user={user} />
+                    <PrivateRoute
+                      exact
+                      path="/profile"
+                      component={ProfilePage}
+                      user={user}
+                    />
+                    <PrivateRoute
+                      exact
+                      path="/editprofile"
+                      component={EditProfile}
+                      user={user}
+                    />
+                  </Switch>
+                </Router>
+              </div>
+            </header>
+          </div>
         </ThemeProvider>
       </div>
     </UserProvider>

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { withRouter, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import ProductHero from 'views/LandingPage/ProductHero'
 import ProductHowItWorks from 'views/LandingPage/ProductHowItWorks'
 
@@ -8,11 +8,9 @@ import { UserContext } from '../../context/UserContext'
 function LandingPage() {
   const { user } = useContext(UserContext)
 
-  if (user) {
-    return <Redirect to="/" />
-  }
-
-  return (
+  return user ? (
+    <Redirect to="/" />
+  ) : (
     <>
       {/* <AppAppBar /> */}
       <ProductHero />
@@ -26,4 +24,4 @@ function LandingPage() {
   )
 }
 
-export default withRouter(LandingPage)
+export default LandingPage

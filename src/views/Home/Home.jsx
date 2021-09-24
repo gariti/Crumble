@@ -1,7 +1,6 @@
 import Container from '@material-ui/core/Container'
 import { UserContext } from 'context/UserContext'
 import React, { useContext } from 'react'
-import { withRouter } from 'react-router-dom'
 
 function Home() {
   const user = useContext(UserContext)
@@ -15,4 +14,4 @@ function Home() {
   ) : null
 }
 
-export default withRouter(Home)
+export default Home

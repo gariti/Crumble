@@ -2,8 +2,7 @@
   "experimentalBabelParserPluginsList": [
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-private-methods",
-    "jsx",
-    "typescript"
+    "jsx"
   ],
   "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
   "importOrderSeparation": true,

@@ -1,173 +1,102 @@
 // import { Typography } from '@material-ui/core';
-import Button from '@material-ui/core/Button'
+import {
+  Avatar,
+  Container,
+  Grid,
+  Link,
+  Slide,
+  Typography,
+} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-// import {
-//   PhotoCameraOutlined,
-//   PinDropRounded,
-//   Restaurant,
-// } from '@material-ui/icons';
+import { Rating } from '@mui/material'
+import Paper from '@mui/material/Paper'
 import profile from 'assets/img/faces/garrettprofile.jpg'
 // import beer from 'assets/img/free/beer.jpg';
 // import casks from 'assets/img/free/casks.jpg';
 // import crispybuns from 'assets/img/free/crispybuns.jpg';
-// import profilebg from 'assets/img/profile-bg.jpg';
-import styles from 'assets/jss/material-kit-react/views/profilePage'
-import classNames from 'classnames'
-import GridContainer from 'components/Grid/GridContainer'
-import GridItem from 'components/Grid/GridItem'
-// import Parallax from 'components/Parallax/Parallax.jsx';
 import { UserContext } from 'context/UserContext'
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 
-const useStyles = makeStyles(styles)
+const useStyles = makeStyles((theme) => ({
+  paperBackground: {},
+  avatar: {
+    borderRadius: '50%',
+    height: '100%',
+    width: '100%',
+    top: '-100px',
+  },
+  avatarContainer: {
+    marginBottom: '-100px',
+  },
+  paper: {
+    padding: 20,
+  },
+}))
 
 export default function ProfilePage() {
-  const { user } = useContext(UserContext)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    if (!user.loading) {
-      setLoading(user.loading)
-    }
-  }, [user.loading])
-
   const classes = useStyles()
-  const imageClasses = classNames(
-    classes.imgRaised,
-    classes.imgRoundedCircle,
-    classes.imgFluid,
-  )
-  // const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+  const user = useContext(UserContext)
+  const [loaded, setLoaded] = useState(false)
   return (
-    !loading && (
-      <div>
-        <div className={classNames(classes.main, classes.mainRaised)}>
-          <div>
-            <div className={classes.container}>
-              <GridContainer justify="center">
-                <GridItem xs={12} sm={12} md={6}>
-                  <div className={classes.profile}>
-                    <div>
-                      <img src={profile} alt="..." className={imageClasses} />
-                    </div>
-                    <div className={classes.name}>
-                      <h3 className={classes.title}>
-                        {user.data.firstName}
-                        {user.data.nickname}
-                        {user.data.lastName}
-                      </h3>
-                      <h6>{user.data.city}</h6>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className="fab fa-twitter" />
-                      </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className="fab fa-instagram" />
-                      </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className="fab fa-facebook" />
-                      </Button>
-                    </div>
-                  </div>
-                </GridItem>
-              </GridContainer>
-              <div className={classes.description}>
-                <p>{user.data.bio}</p>
-              </div>
-              <GridContainer justify="center">
-                <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
-                  {/* <NavPills
-                    alignCenter
-                    color="primary"
-                    tabs={[
-                      {
-                        tabButton: 'Goods',
-                        tabIcon: Restaurant,
-                        tabContent: (
-                          <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={studio1}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio2}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={studio5}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio4}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                          </GridContainer>
-                        ),
-                      },
-                      {
-                        tabButton: 'Location',
-                        tabIcon: PinDropRounded,
-                        tabContent: (
-                          <GridContainer justify="center">
-                            <GridItem xs={6} sm={6} md={4}>
-                              <Typography
-                                component="h3"
-                                variant="h3"
-                                className={classes.description}
-                              >
-                                {user.data.city}
-                              </Typography>
-                              <Typography className={classes.description}>
-                                {user.data.address}
-                              </Typography>
-                            </GridItem>
-                          </GridContainer>
-                        ),
-                      },
-                      {
-                        tabButton: 'Photos',
-                        tabIcon: PhotoCameraOutlined,
-                        tabContent: (
-                          <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={crispybuns}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={beer}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={casks}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                          </GridContainer>
-                        ),
-                      },
-                    ]}
-                  /> */}
-                </GridItem>
-              </GridContainer>
-            </div>
-          </div>
-        </div>
-      </div>
+    user && (
+      <Container className={classes.paperBackground}>
+        <Paper sx={{ p: 2, margin: 'auto', maxWidth: 500, flexGrow: 1 }}>
+          <Slide direction="left" in={loaded}>
+            <Grid container className={classes.avatarContainer} spacing={2}>
+              <Grid item>
+                <Avatar
+                  imgProps={{ onLoad: () => setLoaded(true) }}
+                  src={profile}
+                  alt="..."
+                  className={classes.avatar}
+                />
+              </Grid>
+            </Grid>
+          </Slide>
+          <Slide direction="right" in>
+            <Grid item xs={12} sm container>
+              <Grid item xs container direction="column" spacing={2}>
+                <Grid item>
+                  <Typography variant="subtitle2" component="div">
+                    500 reviews
+                  </Typography>
+                  <Rating />
+                </Grid>
+                <Grid item xs>
+                  <h2>Garrett Carver</h2>
+                  <Typography variant="body2" gutterBottom>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Quisque tempor, nisi sed tincidunt ultricies, lacus eros
+                    sodales mi, sed dignissim mauris tortor at mauris. Aliquam
+                    vitae ante velit. Quisque viverra scelerisque turpis non
+                    aliquet. Suspendisse sem purus, auctor ut suscipit a,
+                    pretium fermentum ipsum. Curabitur ac justo mi. Praesent sed
+                    ante lacus. Nulla vel ultricies tortor, eu consequat arcu.
+                    Sed non magna sagittis, sagittis lorem ultricies, blandit
+                    elit. Nulla posuere elit eget nibh porta cursus. Sed id
+                    feugiat dui, eu tincidunt quam. Cras nulla lacus, cursus non
+                    odio in, fringilla convallis turpis. Phasellus sed cursus
+                    dolor. Mauris ut gravida diam, sed posuere enim. Cras
+                    tincidunt non risus ac facilisis. Praesent et pretium enim.
+                    Nunc nec tempor dolor, gravida pulvinar turpis. Quisque enim
+                    odio, sodales id sodales vestibulum, fermentum viverra
+                    sapien. Sed auctor sem in iaculis tempor. Nulla condimentum
+                    convallis volutpat.{' '}
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Link href="/">Contact Garrett</Link>
+                </Grid>
+              </Grid>
+              <Grid item>
+                <Typography variant="subtitle2" component="div">
+                  Joined 9/24/21
+                </Typography>
+              </Grid>
+            </Grid>
+          </Slide>
+        </Paper>
+      </Container>
     )
   )
 }

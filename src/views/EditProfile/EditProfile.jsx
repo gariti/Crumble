@@ -13,7 +13,7 @@ import buffet from 'assets/img/free/buffet.jpg'
 import { UserContext } from 'context/UserContext'
 import React, { useContext, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useHistory, withRouter } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
   },
   form: {
-    // Fix IE 11 issue.
     marginTop: theme.spacing(1),
     width: '100%',
   },
@@ -53,7 +52,6 @@ function EditProfile() {
   const classes = useStyles()
   const user = useContext(UserContext)
   const history = useHistory()
-  const [loading] = useState(true)
   const defaultFormValues = {
     address: '',
     bio: '',
@@ -99,7 +97,7 @@ function EditProfile() {
       )} */
 
   return (
-    !loading && (
+    user && (
       <div className={classes.root}>
         <Grid container component="main" className={classes.root}>
           <CssBaseline />
@@ -301,4 +299,4 @@ function EditProfile() {
   )
 }
 
-export default withRouter(EditProfile)
+export default EditProfile

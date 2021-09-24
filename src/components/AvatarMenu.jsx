@@ -5,6 +5,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import Logout from '@mui/icons-material/Logout'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { withRouter, useHistory } from 'react-router-dom'
 
 import { ConfirmLogoutDialog } from './ConfirmLogoutDialog'
 
@@ -15,9 +16,9 @@ ProfileMenu.propTypes = {
   setAnchorEl: PropTypes.func.isRequired,
 }
 
-export default function ProfileMenu({ open, setOpen, anchorEl, setAnchorEl }) {
+function ProfileMenu({ open, setOpen, anchorEl, setAnchorEl }) {
   const [logoutDialog, setLogoutDialog] = useState(false)
-
+  const history = useHistory()
   const handleClose = () => {
     setOpen(false)
     setAnchorEl(null)
@@ -43,13 +44,21 @@ export default function ProfileMenu({ open, setOpen, anchorEl, setAnchorEl }) {
         onClose={handleClose}
         onClick={handleClose}
       >
-        <MenuItem>
+        <MenuItem
+          onClick={() => {
+            history.push('/profile')
+          }}
+        >
           <ListItemIcon>
             <AccountCircleIcon fontSize="small" />
           </ListItemIcon>
           Profile
         </MenuItem>
-        <MenuItem>
+        <MenuItem
+          onClick={() => {
+            history.push('/editprofile')
+          }}
+        >
           <ListItemIcon>
             <AccountCircleIcon fontSize="small" />
           </ListItemIcon>
@@ -66,3 +75,5 @@ export default function ProfileMenu({ open, setOpen, anchorEl, setAnchorEl }) {
     </div>
   )
 }
+
+export default withRouter(ProfileMenu)

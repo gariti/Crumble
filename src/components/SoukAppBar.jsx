@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import 'firebase/auth'
 import 'firebase/firestore'
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 import ProfileMenuButton from './ProfileMenuButton'
 
@@ -24,9 +25,6 @@ const useStyles = makeStyles((theme) => ({
 
 function SoukAppBar() {
   const classes = useStyles()
-
-  // const { user } = useContext(UserContext);
-  // const [loading, setLoading] = useState(true);
 
   return (
     // eslint-disable-next-line prettier/prettier
@@ -55,4 +53,4 @@ function SoukAppBar() {
   )
 }
 
-export default SoukAppBar
+export default withRouter(SoukAppBar)
