@@ -29,9 +29,6 @@ function SoukAppBar() {
   const classes = useStyles()
 
   return (
-    // eslint-disable-next-line prettier/prettier
-    // TODO: implement menu
-
     <AppBar position="static">
       <Toolbar>
         <IconButton

@@ -16,11 +16,15 @@ export default function ProfileMenuButton() {
   }
 
   return user.data ? (
-    <div>
+    <div
+      onClick={handleClick}
+      onKeyPress={handleClick}
+      role="button"
+      tabIndex={0}
+    >
       <CustomAvatar
         firstName={user.data.firstName}
-        lastName={user.data.LastName}
-        onClick={handleClick}
+        lastName={user.data.lastName}
       />
       <ProfileMenu
         open={open}
@@ -30,6 +34,8 @@ export default function ProfileMenuButton() {
       />
     </div>
   ) : (
-    <Button href="login">Login</Button>
+    <div>
+      <Button href="login">Login</Button>
+    </div>
   )
 }

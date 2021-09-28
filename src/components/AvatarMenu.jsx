@@ -54,7 +54,7 @@ function ProfileMenu({ open, setOpen, anchorEl, setAnchorEl }) {
           </ListItemIcon>
           Profile
         </MenuItem>
-        <MenuItem
+        {/* <MenuItem
           onClick={() => {
             history.push('/editprofile')
           }}
@@ -63,7 +63,7 @@ function ProfileMenu({ open, setOpen, anchorEl, setAnchorEl }) {
             <AccountCircleIcon fontSize="small" />
           </ListItemIcon>
           Edit Account
-        </MenuItem>
+        </MenuItem> */}
         <Divider />
         <MenuItem onClick={confirmSignOut}>
           <ListItemIcon>

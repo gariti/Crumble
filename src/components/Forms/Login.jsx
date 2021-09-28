@@ -1,3 +1,4 @@
+import { Link } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -119,22 +120,26 @@ function Login(props) {
         </Button>
         <Grid container>
           <Grid item xs>
-            <Button
+            <Link
+              component="button"
+              variant="body2"
               onClick={() => {
                 props.setForm('forgotpassword')
               }}
             >
               Forgot password?
-            </Button>
+            </Link>
           </Grid>
           <Grid item xs>
-            <Button
+            <Link
+              component="button"
+              variant="body2"
               onClick={() => {
                 props.setForm('signup')
               }}
             >
               Don&apos;t have an account? Create one.
-            </Button>
+            </Link>
           </Grid>
         </Grid>
       </form>

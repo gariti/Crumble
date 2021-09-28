@@ -52,7 +52,7 @@ export default function App() {
             data,
           })
         else {
-          // TODO: No should handle this a better way...
+          // TODO: No data availible.  Should handle this a better way...
           // scrub the bad account and notify user to reregister?
           console.log(
             `Something went wrong, user ${user.uid}
