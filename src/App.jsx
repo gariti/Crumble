@@ -1,21 +1,21 @@
 /* eslint-disable no-console */
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles'
+import { UserProvider } from 'Context/UserContext'
 import { getUserData } from 'Firebase/firestore'
-import { UserProvider } from 'context/UserContext'
 import { signOut, getAuth } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
+import SoukAppBar from './Components/SoukAppBar'
 import { authObserver } from './Firebase/auth'
 import PrivateRoute from './Routes/PrivateRoute'
 import Theme from './Theme'
-import SoukAppBar from './components/SoukAppBar'
-import EditProfile from './views/EditProfile/EditProfile'
-import Home from './views/Home/Home'
-import LandingPage from './views/LandingPage/LandingPage'
-import LoginPage from './views/LoginPage/LoginPage'
-import ProfilePage from './views/ProfilePage/ProfilePage'
+import EditProfile from './Views/EditProfile/EditProfile'
+import Home from './Views/Home/Home'
+import LandingPage from './Views/LandingPage/LandingPage'
+import LoginPage from './Views/LoginPage/LoginPage'
+import ProfilePage from './Views/ProfilePage/ProfilePage'
 
 const useStyles = makeStyles((theme) => ({
   root: {
