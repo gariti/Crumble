@@ -8,8 +8,8 @@ import { makeStyles } from '@material-ui/core/styles'
 // import MenuIcon from '@material-ui/icons/Menu'
 import 'firebase/auth'
 import 'firebase/firestore'
+import PropTypes from 'prop-types'
 import React from 'react'
-import { withRouter } from 'react-router-dom'
 
 import ProfileMenuButton from './ProfileMenuButton'
 
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function SoukAppBar() {
+function SoukAppBar({ setOpenLogin }) {
   const classes = useStyles()
 
   return (
@@ -37,7 +37,10 @@ function SoukAppBar() {
           color="inherit"
           aria-label="menu"
         >
-          {/* <SvgIcon component={SoukIcon} /> */}
+          {/*
+          // TODO: Fix icon
+          <SvgIcon component={SoukIcon} />
+           */}
         </IconButton>
         <IconButton
           edge="start"
@@ -45,11 +48,14 @@ function SoukAppBar() {
           color="inherit"
           aria-label="menu"
         >
-          <ProfileMenuButton />
+          <ProfileMenuButton setOpenLogin={setOpenLogin} />
         </IconButton>
       </Toolbar>
     </AppBar>
   )
 }
+SoukAppBar.propTypes = {
+  setOpenLogin: PropTypes.func.isRequired,
+}
 
-export default withRouter(SoukAppBar)
+export default SoukAppBar

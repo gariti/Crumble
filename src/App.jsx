@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles'
+import { Copyright } from 'Components/Copyright'
 import { UserProvider } from 'Context/UserContext'
 import { getUserData } from 'Firebase/firestore'
 import { signOut, getAuth } from 'firebase/auth'
@@ -14,7 +15,7 @@ import Theme from './Theme'
 import EditProfile from './Views/EditProfile/EditProfile'
 import Home from './Views/Home/Home'
 import LandingPage from './Views/LandingPage/LandingPage'
-import LoginPage from './Views/LoginPage/LoginPage'
+import LoginDialog from './Views/LandingPage/LoginDialog'
 import ProfilePage from './Views/ProfilePage/ProfilePage'
 
 const useStyles = makeStyles((theme) => ({
@@ -52,7 +53,7 @@ export default function App() {
             data,
           })
         else {
-          // TODO: No data availible.  Should handle this a better way...
+          // TODO: This means no data was availible in firebase.  Should handle this a better way...
           // scrub the bad account and notify user to reregister?
           console.log(
             `Something went wrong, user ${user.uid}
@@ -78,11 +79,9 @@ export default function App() {
             <header className="App-header">
               <div>
                 <Router>
-                  <SoukAppBar />
-
                   <Switch>
                     <Route exact path="/landing" component={LandingPage} />
-                    <Route exact path="/login" component={LoginPage} />
+                    <Route exact path="/login" component={LoginDialog} />
                     <PrivateRoute exact path="/" component={Home} user={user} />
                     <PrivateRoute
                       exact
@@ -101,6 +100,7 @@ export default function App() {
               </div>
             </header>
           </div>
+          <Copyright />
         </ThemeProvider>
       </div>
     </UserProvider>

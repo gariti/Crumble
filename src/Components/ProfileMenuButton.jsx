@@ -7,7 +7,7 @@ import React, { useContext, useState } from 'react'
 import ProfileMenu from './AvatarMenu'
 import CustomAvatar from './CustomAvatar'
 
-export default function ProfileMenuButton() {
+export default function ProfileMenuButton({ setOpenLogin }) {
   const user = useContext(UserContext)
   const [open, setOpen] = useState(false)
   const [anchorEl, setAnchorEl] = useState(null)
@@ -37,7 +37,7 @@ export default function ProfileMenuButton() {
     </div>
   ) : (
     <div>
-      <Fab color="primary" href="login">
+      <Fab color="primary" onClick={() => setOpenLogin(true)}>
         <LockOpenTwoToneIcon />
       </Fab>
     </div>

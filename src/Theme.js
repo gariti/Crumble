@@ -55,6 +55,18 @@ const theme = {
       placeholder: grey[200],
     },
   },
+  overrides: {
+    MuiFormLabel: {
+      root: {
+        '&$focused': {
+          color: rawTheme.palette.primary.main,
+          padding: '5px',
+        },
+      },
+
+      focused: {},
+    },
+  },
   typography: {
     ...rawTheme.typography,
     fontHeader,

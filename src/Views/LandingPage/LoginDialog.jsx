@@ -1,19 +1,17 @@
 /* eslint-disable no-console */
 import { Avatar, Backdrop, Dialog, Typography } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
 import foodTruck from 'Assets/svg/undraw_Street_food_re_uwex.svg'
 import { Copyright } from 'Components/Copyright'
 import ForgotPassword from 'Components/Forms/ForgotPassword'
-// import ForgotPassword from 'components/Forms/ForgotPassword'
 import Login from 'Components/Forms/Login'
 import SignUp from 'Components/Forms/SignUp'
 import { UserContext } from 'Context/UserContext'
 import React, { useContext, useState, useEffect } from 'react'
-import { useHistory, withRouter } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   truck: {
@@ -27,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function LoginPage() {
+function LoginDialog({ openLogin, setOpenLogin }) {
   const classes = useStyles()
   const [form, setForm] = useState('login')
   const [forgotPassword, setForgotPassword] = useState(false)
@@ -47,7 +45,12 @@ function LoginPage() {
   }
 
   return (
-    <Dialog open={true}>
+    <Dialog
+      open={openLogin}
+      onClose={() => {
+        setOpenLogin(false)
+      }}
+    >
       <Grid
         container
         alignItems="center"
@@ -90,4 +93,4 @@ function LoginPage() {
   )
 }
 
-export default withRouter(LoginPage)
+export default LoginDialog

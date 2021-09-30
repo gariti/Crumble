@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles'
 // import backgroundImage from 'Assets/img/free/pizzaOven.jpg'
 import backgroundImage from 'Assets/svg/undraw_Walking_outside_re_56xo.svg'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
 
 import ProductHeroLayout from './ProductHeroLayout'
 
@@ -29,9 +29,7 @@ const styles = (theme) => ({
   },
 })
 
-function ProductHero(props) {
-  const { classes } = props
-
+function ProductHero({ classes, setOpenLogin }) {
   return (
     <ProductHeroLayout backgroundClassName={classes.background}>
       {/* Increase the network loading priority of the background image. */}
@@ -50,8 +48,8 @@ function ProductHero(props) {
         className={classes.h5}
       >
         Souk is a place to find amazing food in your neighborhood at the lowest
-        price possible. We do not take a slice of the profits from your order,
-        so both you and your local businesses can afford it.
+        price possible. We do not take a slice of the profits from your orders,
+        so you and your neighborhood businesses can save money.
       </Typography>
       <Button
         color="secondary"
@@ -59,7 +57,9 @@ function ProductHero(props) {
         size="large"
         className={classes.button}
         component="a"
-        href="/login"
+        onClick={() => {
+          setOpenLogin(true)
+        }}
       >
         Let&apos;s eat!
       </Button>
@@ -72,6 +72,7 @@ function ProductHero(props) {
 
 ProductHero.propTypes = {
   classes: PropTypes.object.isRequired,
+  setOpenLogin: PropTypes.func.isRequired,
 }
 
 export default withStyles(styles)(ProductHero)
