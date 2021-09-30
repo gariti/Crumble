@@ -62,13 +62,9 @@ function Login({ setForm, setForgotPassword, email, setEmail }) {
 
   return (
     <Container>
-      <Avatar className={classes.avatar}>
-        <LockOutlinedIcon />
-      </Avatar>
       <Typography component="h1" variant="h5">
         Sign in
       </Typography>
-
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
         <TextField
           {...register('email', {
@@ -122,6 +118,7 @@ function Login({ setForm, setForgotPassword, email, setEmail }) {
           variant="contained"
           color="primary"
           className={classes.submit}
+          startIcon={<LockOutlinedIcon />}
         >
           {loading && (
             <CircularProgress className={classes.circularProgress} size={20} />

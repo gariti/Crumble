@@ -20,19 +20,18 @@ function SignUp(props) {
     setForm: PropTypes.func.isRequired,
   }
 
-  const {
-    register,
-    handleSubmit,
-    setError,
-    formState: { errors },
-  } = useForm({ reValidateMode: 'onSubmit' })
-
   const [loading, setLoading] = useState(false)
   const classes = FormStyles()
   const history = useHistory()
   const nameMaxLength = 50
   const nameMinLength = 2
   const passwordMinLength = 6
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm({ reValidateMode: 'onSubmit' })
 
   const onSubmit = async (values, event) => {
     event.preventDefault()
@@ -61,10 +60,7 @@ function SignUp(props) {
   }
 
   return (
-    <Container className={classes.paper}>
-      <Avatar className={classes.avatar}>
-        <LockOutlinedIcon />
-      </Avatar>
+    <Container>
       <Typography component="h1" variant="h5">
         Welcome! Please register below.
       </Typography>
