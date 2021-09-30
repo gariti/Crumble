@@ -1,3 +1,4 @@
+import { Link, makeStyles } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -8,20 +9,17 @@ import Typography from '@material-ui/core/Typography'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Alert from '@material-ui/lab/Alert'
 import { createNewUser } from 'Firebase/firestore'
+import { useSharedStyles } from 'Styles/Shared'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 
-import { FormStyles } from './FormStyles'
+const useStyles = makeStyles((theme) => ({}))
 
-function SignUp(props) {
-  SignUp.propTypes = {
-    setForm: PropTypes.func.isRequired,
-  }
-
+function SignUp({ setForm }) {
   const [loading, setLoading] = useState(false)
-  const classes = FormStyles()
+  const classes = useSharedStyles()
   const history = useHistory()
   const nameMaxLength = 50
   const nameMinLength = 2
@@ -199,18 +197,23 @@ function SignUp(props) {
         )}
 
         <Grid item xs>
-          <Button
+          <Link
+            component="button"
+            variant="body2"
             onClick={() => {
-              props.setForm('login')
+              setForm('login')
             }}
           >
             {' '}
             Already have an account? Sign in.
-          </Button>
+          </Link>
         </Grid>
       </form>
     </Container>
   )
+}
+SignUp.propTypes = {
+  setForm: PropTypes.func.isRequired,
 }
 
 export default SignUp

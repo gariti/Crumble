@@ -1,4 +1,5 @@
 import Container from '@material-ui/core/Container'
+import SoukAppBar from 'Components/SoukAppBar'
 import { UserContext } from 'Context/UserContext'
 import React, { useContext } from 'react'
 
@@ -7,6 +8,7 @@ function Home() {
 
   return user ? (
     <div>
+      <SoukAppBar />
       <Container>
         <h1>Welcome {user.data.firstName}, you are now logged in.</h1>
       </Container>

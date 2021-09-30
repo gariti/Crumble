@@ -81,7 +81,7 @@ export default function App() {
                 <Router>
                   <Switch>
                     <Route exact path="/landing" component={LandingPage} />
-                    <Route exact path="/login" component={LoginDialog} />
+                    {/* <Route exact path="/login" component={LoginDialog} /> */}
                     <PrivateRoute exact path="/" component={Home} user={user} />
                     <PrivateRoute
                       exact

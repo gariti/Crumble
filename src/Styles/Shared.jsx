@@ -1,6 +1,16 @@
 import { makeStyles } from '@material-ui/core/styles'
 
-export const FormStyles = makeStyles((theme) => ({
+export const useSharedStyles = makeStyles((theme) => ({
+  container: {
+    padding: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  headerIcon: {
+    maxWidth: '75%',
+    padding: '20px',
+  },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
@@ -16,6 +26,5 @@ export const FormStyles = makeStyles((theme) => ({
     marginLeft: 0,
     marginRight: 0,
   },
-  container: { padding: '24px' },
   formlabel: { textAlign: 'center', padding: '10px' },
 }))
