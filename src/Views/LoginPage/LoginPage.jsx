@@ -57,37 +57,39 @@ function LoginPage() {
   }
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        {form === 'login' && (
-          <Login
-            setForm={setForm}
-            setForgotPassword={setForgotPassword}
-            email={email}
-            setEmail={setEmail}
-          />
-        )}
-        {form === 'signup' && <SignUp setForm={setForm} />}
-        {forgotPassword && (
-          <Backdrop open={forgotPassword}>
-            {forgotPassword && (
-              <Dialog
-                open={forgotPassword}
-                onClose={handleClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-              >
-                <ForgotPassword email={email} setEmail={setEmail} />
-              </Dialog>
-            )}
-          </Backdrop>
-        )}
-        <Box mt={5}>
-          <Copyright />
-        </Box>
+    <Dialog open={true}>
+      <Grid container component="main" className={classes.root}>
+        <Grid item xs={false} sm={4} md={7} className={classes.image} />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          {form === 'login' && (
+            <Login
+              setForm={setForm}
+              setForgotPassword={setForgotPassword}
+              email={email}
+              setEmail={setEmail}
+            />
+          )}
+          {form === 'signup' && <SignUp setForm={setForm} />}
+          {forgotPassword && (
+            <Backdrop open={forgotPassword}>
+              {forgotPassword && (
+                <Dialog
+                  open={forgotPassword}
+                  onClose={handleClose}
+                  aria-labelledby="alert-dialog-title"
+                  aria-describedby="alert-dialog-description"
+                >
+                  <ForgotPassword email={email} setEmail={setEmail} />
+                </Dialog>
+              )}
+            </Backdrop>
+          )}
+          <Box mt={5}>
+            <Copyright />
+          </Box>
+        </Grid>
       </Grid>
-    </Grid>
+    </Dialog>
   )
 }
 
