@@ -6,13 +6,12 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import Alert from '@material-ui/lab/Alert'
 import EmailIcon from '@mui/icons-material/Email'
-import forgotPassword from 'Assets/img/free/forgotpassword.png'
+import { maxWidth } from '@mui/system'
+import forgotPassword from 'Assets/img/art/forgotpassword.png'
 import { useSharedStyles } from 'Styles/Shared'
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-
-const useStyles = makeStyles((theme) => ({}))
 
 function ForgotPassword({ email, setEmail }) {
   const {
@@ -60,20 +59,24 @@ function ForgotPassword({ email, setEmail }) {
   }
 
   return (
-    <Container>
-      <img className={classes.headerIcon} src={forgotPassword} />
-      <Typography className={classes.formlabel} variant="h5">
-        Password Reset
-      </Typography>
+    <Container className={classes.container}>
+      <img
+        className={classes.headerIcon}
+        style={{ maxWidth: '70%' }}
+        src={forgotPassword}
+      />
+
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
         <Grid
           container
-          alignItems="center"
-          justifyContent="center"
-          component="main"
+          spacing={2}
           className={classes.container}
+          component="main"
         >
-          <Grid item xs={12}>
+          <Grid item xs={8}>
+            <Typography variant="h5">Password Reset</Typography>
+          </Grid>
+          <Grid item xs={8}>
             <TextField
               {...register('email', {
                 required: true,
@@ -101,7 +104,7 @@ function ForgotPassword({ email, setEmail }) {
           {errors.auth && errors.auth.type === 'manual' && (
             <Alert severity="error">{errors.auth.message}</Alert>
           )}
-          <Grid item xs={12}>
+          <Grid item xs={8}>
             <Button
               disabled={success}
               startIcon={<EmailIcon />}
@@ -109,7 +112,6 @@ function ForgotPassword({ email, setEmail }) {
               variant="contained"
               color="primary"
               size="large"
-              className={classes.submit}
             >
               {loading && (
                 <CircularProgress

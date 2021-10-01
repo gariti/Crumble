@@ -6,10 +6,7 @@ import {
   Dialog,
   Typography,
 } from '@material-ui/core'
-import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
-import foodTruck from 'Assets/svg/undraw_Street_food_re_uwex.svg'
 import Login from 'Components/Forms/Login'
 import SignUp from 'Components/Forms/SignUp'
 import { UserContext } from 'Context/UserContext'
@@ -38,25 +35,21 @@ function LoginDialog({ openLogin, setOpenLogin }) {
         setOpenLogin(false)
       }}
     >
-      <Container className={classes.container}>
-        <Grid
-          container
-          alignItems="center"
-          justifyContent="center"
-          component="main"
-          className={classes.container}
-        >
-          <img className={classes.headerIcon} src={foodTruck} />
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="center"
+        component="main"
+        className={classes.container}
+      >
+        <Grid item xs={8}>
+          {form === 'login' && (
+            <Login setForm={setForm} email={email} setEmail={setEmail} />
+          )}
 
-          <Grid item xs={8}>
-            {form === 'login' && (
-              <Login setForm={setForm} email={email} setEmail={setEmail} />
-            )}
-
-            {form === 'signup' && <SignUp setForm={setForm} />}
-          </Grid>
+          {form === 'signup' && <SignUp setForm={setForm} />}
         </Grid>
-      </Container>
+      </Grid>
     </Dialog>
   )
 }

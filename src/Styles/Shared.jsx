@@ -8,8 +8,7 @@ export const useSharedStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   headerIcon: {
-    maxWidth: '75%',
-    padding: '20px',
+    maxWidth: '100%',
   },
   avatar: {
     margin: theme.spacing(1),

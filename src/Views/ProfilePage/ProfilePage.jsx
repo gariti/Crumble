@@ -11,9 +11,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Rating } from '@mui/material'
 import Paper from '@mui/material/Paper'
 import profile from 'Assets/img/faces/garrettprofile.jpg'
-// import beer from 'Assets/img/free/beer.jpg';
-// import casks from 'Assets/img/free/casks.jpg';
-// import crispybuns from 'Assets/img/free/crispybuns.jpg';
+// import beer from 'Assets/img/photos/beer.jpg';
+// import casks from 'Assets/img/photos/casks.jpg';
+// import crispybuns from 'Assets/img/photos/crispybuns.jpg';
 import { UserContext } from 'Context/UserContext'
 import React, { useContext, useState } from 'react'
 

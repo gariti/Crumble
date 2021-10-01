@@ -42,14 +42,8 @@ function SoukAppBar({ setOpenLogin }) {
           <SvgIcon component={SoukIcon} />
            */}
         </IconButton>
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="menu"
-        >
-          <ProfileMenuButton setOpenLogin={setOpenLogin} />
-        </IconButton>
+
+        <ProfileMenuButton setOpenLogin={setOpenLogin} />
       </Toolbar>
     </AppBar>
   )

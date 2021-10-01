@@ -8,6 +8,7 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Alert from '@material-ui/lab/Alert'
+import foodTruck from 'Assets/svg/undraw_Street_food_re_uwex.svg'
 import ForgotPassword from 'Components/Forms/ForgotPassword'
 import { useSharedStyles } from 'Styles/Shared'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
@@ -62,7 +63,9 @@ function Login({ setForm, email, setEmail }) {
   }
 
   return (
-    <Container>
+    <div>
+      <img className={classes.headerIcon} src={foodTruck} />
+
       <Typography component="h1" variant="h5">
         Sign in
       </Typography>
@@ -164,7 +167,7 @@ function Login({ setForm, email, setEmail }) {
           </Link>
         </Grid>
       </Grid>
-    </Container>
+    </div>
   )
 }
 export default Login
