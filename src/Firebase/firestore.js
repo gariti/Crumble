@@ -2,6 +2,12 @@
 import firebase from 'Firebase/firebase'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+
+const omitKeys = (keysToOmit, originalObj = {}) =>
+  Object.fromEntries(
+    Object.entries(originalObj).filter(([key]) => !keysToOmit.includes(key)),
+  )
 
 const db = getFirestore(firebase)
 
@@ -13,12 +19,22 @@ const db = getFirestore(firebase)
 //   })
 // }
 
-export const createNewUser = async (user) => {
-  createUserWithEmailAndPassword(getAuth(), user.email, user.password).then(
-    (uc) => {
-      setDoc(doc(db, 'users', uc.user.uid), user)
-    },
-  )
+export const createNewUser = async (email, password) => {
+  return createUserWithEmailAndPassword(getAuth(), email, password)
+}
+
+export const uploadPhoto = async (path, photo) => {
+  const storageRef = ref(getStorage(), path)
+  uploadBytes(storageRef, photo)
+}
+
+export const getUserPhotoUrl = async (uid) => {
+  const storageRef = ref(getStorage(), `${uid}/profile`)
+  getDownloadURL(storageRef)
+}
+
+export const updateUser = async (uid, data) => {
+  return setDoc(doc(db, 'users', uid), data)
 }
 
 export const getUserData = async (uid) => {

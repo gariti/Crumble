@@ -9,6 +9,7 @@ import {
 import Grid from '@material-ui/core/Grid'
 import Login from 'Components/Forms/Login'
 import SignUp from 'Components/Forms/SignUp'
+import LoadingOverlay from 'Components/Loading/LoadingOverlay'
 import { UserContext } from 'Context/UserContext'
 import { useSharedStyles } from 'Styles/Shared'
 import React, { useContext, useState, useEffect } from 'react'
@@ -18,6 +19,7 @@ function LoginDialog({ openLogin, setOpenLogin }) {
   const classes = useSharedStyles()
   const [form, setForm] = useState('login')
   const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
   const { user } = useContext(UserContext)
   const history = useHistory()
 
@@ -29,28 +31,32 @@ function LoginDialog({ openLogin, setOpenLogin }) {
   }, [user])
 
   return (
-    <Dialog
-      open={openLogin}
-      onClose={() => {
-        setOpenLogin(false)
-      }}
-    >
-      <Grid
-        container
-        alignItems="center"
-        justifyContent="center"
-        component="main"
-        className={classes.container}
+    <div>
+      <LoadingOverlay loading={loading} />
+      <Dialog
+        open={openLogin}
+        onClose={() => {
+          setOpenLogin(false)
+        }}
       >
-        <Grid item xs={8}>
-          {form === 'login' && (
-            <Login setForm={setForm} email={email} setEmail={setEmail} />
-          )}
-
-          {form === 'signup' && <SignUp setForm={setForm} />}
+        <Grid
+          container
+          alignItems="center"
+          justifyContent="center"
+          component="main"
+          className={classes.container}
+        >
+          <Grid item xs={8}>
+            {form === 'login' && (
+              <Login setForm={setForm} email={email} setEmail={setEmail} />
+            )}
+            {form === 'signup' && (
+              <SignUp setForm={setForm} setLoading={setLoading} />
+            )}
+          </Grid>
         </Grid>
-      </Grid>
-    </Dialog>
+      </Dialog>
+    </div>
   )
 }
 

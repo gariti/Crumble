@@ -1,17 +1,22 @@
-import { FormHelperText, Grid, makeStyles } from '@material-ui/core'
+import { FormHelperText, Grid } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Container from '@material-ui/core/Container'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
+import { EmailTwoTone } from '@material-ui/icons'
 import Alert from '@material-ui/lab/Alert'
-import EmailIcon from '@mui/icons-material/Email'
-import { maxWidth } from '@mui/system'
 import forgotPassword from 'Assets/img/art/forgotpassword.png'
 import { useSharedStyles } from 'Styles/Shared'
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+
+ForgotPassword.propTypes = {
+  email: PropTypes.string,
+  setEmail: PropTypes.func.isRequired,
+}
 
 function ForgotPassword({ email, setEmail }) {
   const {
@@ -20,7 +25,7 @@ function ForgotPassword({ email, setEmail }) {
     setError,
     clearErrors,
     formState: { errors },
-  } = useForm({ defaultValues: { email: email } })
+  } = useForm({ defaultValues: { email } })
 
   const [success, setSuccess] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -38,7 +43,7 @@ function ForgotPassword({ email, setEmail }) {
         setEmail(values.email)
       })
       .catch((e) => {
-        var msg
+        let msg
         switch (e.code) {
           case 'auth/too-many-requests':
             msg =
@@ -64,6 +69,7 @@ function ForgotPassword({ email, setEmail }) {
         className={classes.headerIcon}
         style={{ maxWidth: '70%' }}
         src={forgotPassword}
+        alt="Couple eating dinner"
       />
 
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
@@ -107,7 +113,7 @@ function ForgotPassword({ email, setEmail }) {
           <Grid item xs={8}>
             <Button
               disabled={success}
-              startIcon={<EmailIcon />}
+              startIcon={<EmailTwoTone />}
               type="submit"
               variant="contained"
               color="primary"

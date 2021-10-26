@@ -4,14 +4,13 @@ import AppBar from '@material-ui/core/AppBar'
 import IconButton from '@material-ui/core/IconButton'
 import Toolbar from '@material-ui/core/Toolbar'
 import { makeStyles } from '@material-ui/core/styles'
+import ProfileMenuButton from 'Components/AppBar/ProfileMenuButton'
 // import { ReactComponent as SoukIcon } from 'Assets/svg/masonjar.svg'
 // import MenuIcon from '@material-ui/icons/Menu'
 import 'firebase/auth'
 import 'firebase/firestore'
 import PropTypes from 'prop-types'
 import React from 'react'
-
-import ProfileMenuButton from './ProfileMenuButton'
 
 const useStyles = makeStyles((theme) => ({
   root: {

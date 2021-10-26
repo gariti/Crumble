@@ -1,14 +1,14 @@
 /* eslint-disable no-console */
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles'
-import { Copyright } from 'Components/Copyright'
+import { Copyright } from 'Components/Copyright/Copyright'
 import { UserProvider } from 'Context/UserContext'
 import { getUserData } from 'Firebase/firestore'
 import { signOut, getAuth } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import SoukAppBar from './Components/SoukAppBar'
+import SoukAppBar from './Components/AppBar/SoukAppBar'
 import { authObserver } from './Firebase/auth'
 import PrivateRoute from './Routes/PrivateRoute'
 import Theme from './Theme'

@@ -1,4 +1,4 @@
-import SoukAppBar from 'Components/SoukAppBar'
+import SoukAppBar from 'Components/AppBar/SoukAppBar'
 import LoginDialog from 'Views/LandingPage/LoginDialog'
 import ProductHero from 'Views/LandingPage/ProductHero'
 import ProductHowItWorks from 'Views/LandingPage/ProductHowItWorks'

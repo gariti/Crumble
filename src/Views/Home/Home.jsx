@@ -1,5 +1,5 @@
 import Container from '@material-ui/core/Container'
-import SoukAppBar from 'Components/SoukAppBar'
+import SoukAppBar from 'Components/AppBar/SoukAppBar'
 import { UserContext } from 'Context/UserContext'
 import React, { useContext } from 'react'
 

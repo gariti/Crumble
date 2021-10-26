@@ -4,12 +4,12 @@ import {
   Container,
   Grid,
   Link,
+  Paper,
   Slide,
   Typography,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { Rating } from '@mui/material'
-import Paper from '@mui/material/Paper'
+import { Rating } from '@material-ui/lab'
 import profile from 'Assets/img/faces/garrettprofile.jpg'
 // import beer from 'Assets/img/photos/beer.jpg';
 // import casks from 'Assets/img/photos/casks.jpg';

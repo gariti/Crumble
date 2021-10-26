@@ -4,28 +4,19 @@ import { createTheme } from '@material-ui/core/styles'
 const rawTheme = createTheme({
   palette: {
     primary: {
-      light: '#b7c7d6',
       main: '#1586b4',
+      light: '#f5f5f5',
       dark: '#2f2e41',
+      selected: '#b7c7d6',
     },
     secondary: {
-      light: '#fff5f8',
-      main: '#1586b4',
+      light: '#f5f5f5',
+      main: '#2f2e41',
       dark: '#e62958',
     },
     warning: {
       main: '#ffc071',
       dark: '#ffb25e',
-    },
-    error: {
-      xLight: red[50],
-      main: red[500],
-      dark: red[700],
-    },
-    success: {
-      xLight: green[50],
-      main: green[500],
-      dark: green[700],
     },
   },
   typography: {
@@ -56,6 +47,25 @@ const theme = {
     },
   },
   overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '*': {
+          'scrollbar-width': 'thin',
+        },
+        '*::-webkit-scrollbar': {
+          width: '10px',
+        },
+        '*::-webkit-scrollbar-track': {
+          background: '#f1f1f1',
+        },
+        '*::-webkit-scrollbar-thumb': {
+          background: '#1586b4',
+        },
+        '*::-webkit-scrollbar-thumb:hover': {
+          background: '#e62958',
+        },
+      },
+    },
     MuiFormLabel: {
       root: {
         '&$focused': {

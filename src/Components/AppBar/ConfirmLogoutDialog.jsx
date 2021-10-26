@@ -1,12 +1,12 @@
 import {
   Button,
   CircularProgress,
+  Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
 } from '@material-ui/core'
-import Dialog from '@mui/material/Dialog'
 import { signOutOfFirebase } from 'Firebase/auth'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'

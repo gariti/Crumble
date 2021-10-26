@@ -26,4 +26,21 @@ export const useSharedStyles = makeStyles((theme) => ({
     marginRight: 0,
   },
   formlabel: { textAlign: 'center', padding: '10px' },
+  dropzone: {
+    p: 0,
+    border: '1px dashed grey',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 100,
+    display: 'flex',
+    borderRadius: 8,
+    cursor: 'pointer',
+    backgroundColor: theme.palette.primary.light,
+    '&:hover': {
+      backgroundColor: theme.palette.primary.selected,
+    },
+  },
+  loading: {
+    zIndex: theme.zIndex.modal + 1,
+  },
 }))

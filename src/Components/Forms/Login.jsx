@@ -12,7 +12,7 @@ import foodTruck from 'Assets/svg/undraw_Street_food_re_uwex.svg'
 import ForgotPassword from 'Components/Forms/ForgotPassword'
 import { useSharedStyles } from 'Styles/Shared'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 
@@ -36,8 +36,10 @@ function Login({ setForm, email, setEmail }) {
 
   React.useEffect(() => {
     if (email) {
-      setValue('email', email, { shouldDirty: true, shouldTouch: true })
-      setFocus('email')
+      setTimeout(() => {
+        setValue('email', email, { shouldDirty: true, shouldTouch: true })
+        setFocus('email')
+      }, 1500)
     }
   }, [email])
 
@@ -63,12 +65,19 @@ function Login({ setForm, email, setEmail }) {
   }
 
   return (
-    <div>
-      <img className={classes.headerIcon} src={foodTruck} />
-
-      <Typography component="h1" variant="h5">
-        Sign in
-      </Typography>
+    <Grid container spacing={1}>
+      <Grid item xs={12}>
+        <img
+          className={classes.headerIcon}
+          src={foodTruck}
+          alt="People enjoying a food truck"
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <Typography variant="h5" align="center">
+          Log in
+        </Typography>
+      </Grid>
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
         <TextField
           {...register('email', {
@@ -167,7 +176,7 @@ function Login({ setForm, email, setEmail }) {
           </Link>
         </Grid>
       </Grid>
-    </div>
+    </Grid>
   )
 }
 export default Login

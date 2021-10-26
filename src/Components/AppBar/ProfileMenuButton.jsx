@@ -1,11 +1,15 @@
-import { Button } from '@material-ui/core'
-import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone'
-import Fab from '@mui/material/Fab'
+import { Fab } from '@material-ui/core'
+import { LockOpenTwoTone } from '@material-ui/icons'
 import { UserContext } from 'Context/UserContext'
+import PropTypes from 'prop-types'
 import React, { useContext, useState } from 'react'
 
-import ProfileMenu from './AvatarMenu'
 import CustomAvatar from './CustomAvatar'
+import ProfileMenu from './ProfileMenu'
+
+ProfileMenuButton.propTypes = {
+  setOpenLogin: PropTypes.func.isRequired,
+}
 
 export default function ProfileMenuButton({ setOpenLogin }) {
   const user = useContext(UserContext)
@@ -27,6 +31,7 @@ export default function ProfileMenuButton({ setOpenLogin }) {
       <CustomAvatar
         firstName={user.data.firstName}
         lastName={user.data.lastName}
+        uid={user.uid}
       />
       <ProfileMenu
         open={open}
@@ -38,7 +43,7 @@ export default function ProfileMenuButton({ setOpenLogin }) {
   ) : (
     <div>
       <Fab color="primary" onClick={() => setOpenLogin(true)}>
-        <LockOpenTwoToneIcon />
+        <LockOpenTwoTone />
       </Fab>
     </div>
   )

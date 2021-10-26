@@ -1,9 +1,7 @@
 import { Backdrop, Divider, ListItemIcon } from '@material-ui/core'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle'
-import Logout from '@mui/icons-material/Logout'
-import Dialog from '@mui/material/Dialog'
+import { AccountCircleTwoTone, Lock } from '@material-ui/icons'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { withRouter, useHistory } from 'react-router-dom'
@@ -51,7 +49,7 @@ function ProfileMenu({ open, setOpen, anchorEl, setAnchorEl }) {
           }}
         >
           <ListItemIcon>
-            <AccountCircleIcon fontSize="small" />
+            <AccountCircleTwoTone fontSize="small" />
           </ListItemIcon>
           Profile
         </MenuItem>
@@ -68,7 +66,7 @@ function ProfileMenu({ open, setOpen, anchorEl, setAnchorEl }) {
         <Divider />
         <MenuItem onClick={confirmSignOut}>
           <ListItemIcon>
-            <Logout fontSize="small" />
+            <Lock fontSize="small" />
           </ListItemIcon>
           Sign Out
         </MenuItem>
