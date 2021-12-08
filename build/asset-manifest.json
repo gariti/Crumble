@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.js": "/static/js/main.b41da097.chunk.js",
+    "main.js.map": "/static/js/main.b41da097.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f5cfbed7.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f5cfbed7.js.map",
+    "static/css/2.f2512455.chunk.css": "/static/css/2.f2512455.chunk.css",
+    "static/js/2.d3664d30.chunk.js": "/static/js/2.d3664d30.chunk.js",
+    "static/js/2.d3664d30.chunk.js.map": "/static/js/2.d3664d30.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.f2512455.chunk.css.map": "/static/css/2.f2512455.chunk.css.map",
+    "static/js/2.d3664d30.chunk.js.LICENSE.txt": "/static/js/2.d3664d30.chunk.js.LICENSE.txt",
+    "static/media/bio.60e494b8.png": "/static/media/bio.60e494b8.png",
+    "static/media/buffet.39fef2c0.jpg": "/static/media/buffet.39fef2c0.jpg",
+    "static/media/dinner.24f3bb6b.png": "/static/media/dinner.24f3bb6b.png",
+    "static/media/forgotpassword.2be101e6.png": "/static/media/forgotpassword.2be101e6.png",
+    "static/media/garrettprofile.8a526d88.jpg": "/static/media/garrettprofile.8a526d88.jpg",
+    "static/media/map.c846adaa.svg": "/static/media/map.c846adaa.svg",
+    "static/media/order.0af0de3e.svg": "/static/media/order.0af0de3e.svg",
+    "static/media/selfie.43ef2fe2.png": "/static/media/selfie.43ef2fe2.png",
+    "static/media/undraw_Street_food_re_uwex.1865d951.svg": "/static/media/undraw_Street_food_re_uwex.1865d951.svg",
+    "static/media/undraw_Walking_outside_re_56xo.2df35b79.svg": "/static/media/undraw_Walking_outside_re_56xo.2df35b79.svg",
+    "static/media/walk.a0de33ab.svg": "/static/media/walk.a0de33ab.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f5cfbed7.js",
+    "static/css/2.f2512455.chunk.css",
+    "static/js/2.d3664d30.chunk.js",
+    "static/js/main.b41da097.chunk.js"
+  ]
+}
