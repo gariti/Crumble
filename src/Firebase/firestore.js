@@ -1,3 +1,5 @@
+/* eslint-disable arrow-body-style */
+
 /* eslint-disable no-console */
 import firebase from 'Firebase/firebase'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
@@ -30,7 +32,8 @@ export const uploadPhoto = async (path, photo) => {
 
 export const getUserPhotoUrl = async (uid) => {
   const storageRef = ref(getStorage(), `${uid}/profile`)
-  getDownloadURL(storageRef)
+  const photo = await getDownloadURL(storageRef)
+  return photo
 }
 
 export const updateUser = async (uid, data) => {

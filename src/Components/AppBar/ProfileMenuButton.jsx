@@ -8,10 +8,10 @@ import CustomAvatar from './CustomAvatar'
 import ProfileMenu from './ProfileMenu'
 
 ProfileMenuButton.propTypes = {
-  setOpenLogin: PropTypes.func.isRequired,
+  // setOpenLogin: PropTypes.func.isRequired,
 }
 
-export default function ProfileMenuButton({ setOpenLogin }) {
+export default function ProfileMenuButton() {
   const user = useContext(UserContext)
   const [open, setOpen] = useState(false)
   const [anchorEl, setAnchorEl] = useState(null)
@@ -42,7 +42,7 @@ export default function ProfileMenuButton({ setOpenLogin }) {
     </div>
   ) : (
     <div>
-      <Fab color="primary" onClick={() => setOpenLogin(true)}>
+      <Fab color="primary">
         <LockOpenTwoTone />
       </Fab>
     </div>

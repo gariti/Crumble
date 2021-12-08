@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function SoukAppBar({ setOpenLogin }) {
+function SoukAppBar() {
   const classes = useStyles()
 
   return (
@@ -42,13 +42,13 @@ function SoukAppBar({ setOpenLogin }) {
            */}
         </IconButton>
 
-        <ProfileMenuButton setOpenLogin={setOpenLogin} />
+        <ProfileMenuButton />
       </Toolbar>
     </AppBar>
   )
 }
 SoukAppBar.propTypes = {
-  setOpenLogin: PropTypes.func.isRequired,
+  // setOpenLogin: PropTypes.func.isRequired,
 }
 
 export default SoukAppBar

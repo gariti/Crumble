@@ -1,8 +1,9 @@
+import { CircularProgress } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import StringAvatar from 'Components/AppBar/StringAvatar'
 import { getUserPhotoUrl } from 'Firebase/firestore'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 CustomAvatar.propTypes = {
   firstName: PropTypes.string,
@@ -11,9 +12,19 @@ CustomAvatar.propTypes = {
 }
 
 export default function CustomAvatar({ firstName, lastName, uid }) {
-  const photo = getUserPhotoUrl(uid)
+  const [photo, setPhoto] = useState(null)
 
-  // TODO: after user photo retrieved rerender
+  useEffect(() => {
+    if (photo == null) {
+      getUserPhotoUrl(uid).then((p) => {
+        setPhoto(p)
+      })
+    }
+  }, [])
 
-  return <Avatar src={photo} {...StringAvatar(`${firstName} ${lastName}`)} />
+  return photo ? (
+    <Avatar src={photo} {...StringAvatar(`${firstName} ${lastName}`)} />
+  ) : (
+    <CircularProgress color="light" />
+  )
 }
