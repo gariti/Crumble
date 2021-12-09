@@ -27,8 +27,8 @@ export default function PhotoInput({ classes, errors, photo, setPhoto }) {
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles[0].name.match(/\.(jpg|jpeg|png)$/)) {
       const reader = new FileReader()
-      reader.onabort = () => console.log('file reading was aborted')
-      reader.onerror = () => console.log('file reading has failed')
+      // reader.onabort = () => console.log('file reading was aborted')
+      // reader.onerror = () => console.log('file reading has failed')
       reader.onload = () => {
         const blob = new Blob([reader.result], { type: acceptedFiles[0].type })
         setPhoto(blob)
