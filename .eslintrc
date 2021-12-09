@@ -2,7 +2,7 @@
   "extends": "@imaginary-cloud/react",
   "rules": {
     "no-unused-vars": "warn",
-    "jsx-a11y/anchor-is-valid": "warn"
+    "jsx-a11y/anchor-is-valid": "off"
   },
   "settings": {
     "import/resolver": {
