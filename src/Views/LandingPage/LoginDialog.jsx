@@ -12,8 +12,14 @@ import SignUp from 'Components/Forms/SignUp'
 import LoadingOverlay from 'Components/Loading/LoadingOverlay'
 import { UserContext } from 'Context/UserContext'
 import { useSharedStyles } from 'Styles/Shared'
+import PropTypes from 'prop-types'
 import React, { useContext, useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+
+LoginDialog.propTypes = {
+  openLogin: PropTypes.bool.isRequired,
+  setOpenLogin: PropTypes.func.isRequired,
+}
 
 function LoginDialog({ openLogin, setOpenLogin }) {
   const classes = useSharedStyles()

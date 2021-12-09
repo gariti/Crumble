@@ -79,7 +79,7 @@ export default function PhotoInput({
               width="300"
               height="300"
               src={photo ? URL.createObjectURL(photo) : ''}
-              alt="Selected Photo"
+              alt="Selected"
             />
             <DialogContentText id="alert-dialog-description">
               Beautiful! Would you like to use this photo?

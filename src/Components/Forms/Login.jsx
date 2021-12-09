@@ -12,9 +12,16 @@ import foodTruck from 'Assets/svg/undraw_Street_food_re_uwex.svg'
 import ForgotPassword from 'Components/Forms/ForgotPassword'
 import { useSharedStyles } from 'Styles/Shared'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
+
+Login.propTypes = {
+  setForm: PropTypes.func.isRequired,
+  email: PropTypes.string,
+  setEmail: PropTypes.func.isRequired,
+}
 
 function Login({ setForm, email, setEmail }) {
   const {
@@ -26,7 +33,7 @@ function Login({ setForm, email, setEmail }) {
     setValue,
     setFocus,
     formState: { errors },
-  } = useForm({ defaultValues: { email: email } })
+  } = useForm({ defaultValues: { email } })
 
   const [forgotPassword, setForgotPassword] = useState(false)
   const [loading, setLoading] = useState(false)

@@ -15,7 +15,7 @@ export default function CustomAvatar({ firstName, lastName, uid }) {
   const [photo, setPhoto] = useState(null)
 
   useEffect(() => {
-    if (photo == null) {
+    if (!photo) {
       getUserPhotoUrl(uid).then((p) => {
         setPhoto(p)
       })

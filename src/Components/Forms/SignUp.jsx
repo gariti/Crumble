@@ -1,4 +1,4 @@
-import { Backdrop, CircularProgress, Link } from '@material-ui/core'
+import { Link } from '@material-ui/core'
 import bio from 'Assets/img/art/bio.png'
 import dinner from 'Assets/img/art/dinner.png'
 import selfie from 'Assets/img/art/selfie.png'
@@ -111,22 +111,7 @@ function SignUp({ setForm, setLoading }) {
         handleBack={handleBack}
         handleNext={handleNext}
       />
-      {/* <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            disabled={loading}
-          >
-            {loading && (
-              <CircularProgress
-                className={classes.circularProgress}
-                size={20}
-              />
-            )}
-            Sign Up
-          </Button> */}
+
       <Link
         component="button"
         variant="body2"
