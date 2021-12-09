@@ -11,13 +11,10 @@ import {
 import { makeStyles } from '@material-ui/core/styles'
 import { Rating } from '@material-ui/lab'
 import profile from 'Assets/img/faces/garrettprofile.jpg'
-// import beer from 'Assets/img/photos/beer.jpg';
-// import casks from 'Assets/img/photos/casks.jpg';
-// import crispybuns from 'Assets/img/photos/crispybuns.jpg';
 import { UserContext } from 'Context/UserContext'
 import React, { useContext, useState } from 'react'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   paperBackground: {},
   avatar: {
     borderRadius: '50%',

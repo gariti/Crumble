@@ -9,7 +9,7 @@ AdditionalInfo.propTypes = {
   errors: PropTypes.object.isRequired,
 }
 
-export default function AdditionalInfo({ register, classes, errors }) {
+export default function AdditionalInfo({ register, errors }) {
   const maxChars = 170
   return (
     <Grid container spacing={1}>

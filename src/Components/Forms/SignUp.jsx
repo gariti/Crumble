@@ -22,7 +22,6 @@ function SignUp({ setForm, setLoading }) {
 
   const {
     register,
-    setError,
     getValues,
     formState: { errors },
   } = useForm({

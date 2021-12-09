@@ -21,7 +21,7 @@ export default function SignUpStepper({ activeStep, handleNext, handleBack }) {
   return (
     <Box>
       <Stepper activeStep={activeStep}>
-        {steps.map((label, index) => {
+        {steps.map((label) => {
           const stepProps = {}
           const labelProps = {}
 

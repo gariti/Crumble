@@ -12,26 +12,18 @@ import {
 import { AddAPhotoTwoTone } from '@material-ui/icons'
 import CheckCircleIcon from '@material-ui/icons/CheckCircle'
 import { Alert } from '@material-ui/lab'
-import theme from 'Theme'
 import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 
 PhotoInput.propTypes = {
-  register: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
   photo: PropTypes.object,
   setPhoto: PropTypes.func.isRequired,
 }
 
-export default function PhotoInput({
-  register,
-  classes,
-  errors,
-  photo,
-  setPhoto,
-}) {
+export default function PhotoInput({ classes, errors, photo, setPhoto }) {
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles[0].name.match(/\.(jpg|jpeg|png)$/)) {
       const reader = new FileReader()

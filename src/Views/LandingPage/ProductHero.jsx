@@ -1,10 +1,9 @@
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
-// import backgroundImage from 'Assets/img/photos/pizzaOven.jpg'
 import backgroundImage from 'Assets/svg/undraw_Walking_outside_re_56xo.svg'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React from 'react'
 
 import ProductHeroLayout from './ProductHeroLayout'
 

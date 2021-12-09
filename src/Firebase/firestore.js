@@ -6,20 +6,7 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
-const omitKeys = (keysToOmit, originalObj = {}) =>
-  Object.fromEntries(
-    Object.entries(originalObj).filter(([key]) => !keysToOmit.includes(key)),
-  )
-
 const db = getFirestore(firebase)
-
-// export const updateUser = async (uid, user) => {
-//   const docRef = doc(db, 'users', uid)
-
-//   await docRef.update({ ...user }).catch((error) => {
-//     console.error('Error updating document:', error)
-//   })
-// }
 
 export const createNewUser = async (email, password) => {
   return createUserWithEmailAndPassword(getAuth(), email, password)

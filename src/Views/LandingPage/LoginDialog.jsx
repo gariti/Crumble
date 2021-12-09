@@ -1,11 +1,5 @@
 /* eslint-disable no-console */
-import {
-  Avatar,
-  Backdrop,
-  Container,
-  Dialog,
-  Typography,
-} from '@material-ui/core'
+import { Dialog } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import Login from 'Components/Forms/Login'
 import SignUp from 'Components/Forms/SignUp'

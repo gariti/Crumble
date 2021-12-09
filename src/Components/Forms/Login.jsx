@@ -1,8 +1,6 @@
-import { Backdrop, Dialog, Link, makeStyles } from '@material-ui/core'
-import Avatar from '@material-ui/core/Avatar'
+import { Backdrop, Dialog, Link } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
@@ -13,7 +11,7 @@ import ForgotPassword from 'Components/Forms/ForgotPassword'
 import { useSharedStyles } from 'Styles/Shared'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 
@@ -29,7 +27,6 @@ function Login({ setForm, email, setEmail }) {
     handleSubmit,
     setError,
     getValues,
-    reset,
     setValue,
     setFocus,
     formState: { errors },

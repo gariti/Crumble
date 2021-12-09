@@ -8,14 +8,12 @@ import { signOut, getAuth } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import SoukAppBar from './Components/AppBar/SoukAppBar'
 import { authObserver } from './Firebase/auth'
 import PrivateRoute from './Routes/PrivateRoute'
 import Theme from './Theme'
 import EditProfile from './Views/EditProfile/EditProfile'
 import Home from './Views/Home/Home'
 import LandingPage from './Views/LandingPage/LandingPage'
-import LoginDialog from './Views/LandingPage/LoginDialog'
 import ProfilePage from './Views/ProfilePage/ProfilePage'
 
 const useStyles = makeStyles((theme) => ({
