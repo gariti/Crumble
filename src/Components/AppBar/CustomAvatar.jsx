@@ -1,7 +1,7 @@
 import { CircularProgress } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
+import { getUserPhotoUrl } from 'Cloud/firestore'
 import StringAvatar from 'Components/AppBar/StringAvatar'
-import { getUserPhotoUrl } from 'Firebase/firestore'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 

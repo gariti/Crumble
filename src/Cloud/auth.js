@@ -1,4 +1,4 @@
-import firebase from 'Firebase/firebase'
+import firebase from 'Cloud/firebase'
 import { onAuthStateChanged, getAuth, signOut } from 'firebase/auth'
 
 export function authObserver(callback) {

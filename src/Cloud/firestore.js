@@ -1,7 +1,7 @@
 /* eslint-disable arrow-body-style */
 
 /* eslint-disable no-console */
-import firebase from 'Firebase/firebase'
+import firebase from 'Cloud/firebase'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'

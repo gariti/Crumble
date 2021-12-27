@@ -7,7 +7,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@material-ui/core'
-import { signOutOfFirebase } from 'Firebase/auth'
+import { signOutOfFirebase } from 'Cloud/auth'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
