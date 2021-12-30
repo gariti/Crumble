@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Toolbar from '@material-ui/core/Toolbar'
 import { makeStyles } from '@material-ui/core/styles'
 import ProfileMenuButton from 'Components/AppBar/ProfileMenuButton'
-// import { ReactComponent as SoukIcon } from 'Assets/svg/masonjar.svg'
+// import { ReactComponent as CrumbleIcon } from 'Assets/svg/masonjar.svg'
 // import MenuIcon from '@material-ui/icons/Menu'
 import 'firebase/auth'
 import 'firebase/firestore'
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function SoukAppBar() {
+function CrumbleAppBar() {
   const classes = useStyles()
 
   return (
@@ -37,7 +37,7 @@ function SoukAppBar() {
         >
           {/*
           // TODO: Fix icon
-          <SvgIcon component={SoukIcon} />
+          <SvgIcon component={CrumbleIcon} />
            */}
         </IconButton>
 
@@ -46,8 +46,8 @@ function SoukAppBar() {
     </AppBar>
   )
 }
-SoukAppBar.propTypes = {
+CrumbleAppBar.propTypes = {
   // setOpenLogin: PropTypes.func.isRequired,
 }
 
-export default SoukAppBar
+export default CrumbleAppBar
