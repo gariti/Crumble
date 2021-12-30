@@ -1,4 +1,4 @@
-import SoukAppBar from 'Components/AppBar/SoukAppBar'
+import CrumbleAppBar from 'Components/AppBar/CrumbleAppBar'
 import LoginDialog from 'Views/LandingPage/LoginDialog'
 import ProductHero from 'Views/LandingPage/ProductHero'
 import ProductHowItWorks from 'Views/LandingPage/ProductHowItWorks'
@@ -15,7 +15,7 @@ function LandingPage() {
     <Redirect to="/" />
   ) : (
     <>
-      <SoukAppBar setOpenLogin={setOpenLogin} />
+      <CrumbleAppBar setOpenLogin={setOpenLogin} />
       <LoginDialog setOpenLogin={setOpenLogin} openLogin={openLogin} />
       <ProductHero setOpenLogin={setOpenLogin} />
       {/* <ProductValues /> */}

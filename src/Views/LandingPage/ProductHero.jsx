@@ -46,9 +46,9 @@ function ProductHero({ classes, setOpenLogin }) {
         variant="h5"
         className={classes.h5}
       >
-        Souk is a place to find amazing food in your neighborhood at the lowest
-        price possible. We do not take a slice of the profits from your orders,
-        so you and your neighborhood businesses can save money.
+        Crumble is a place to find amazing food in your neighborhood at the
+        lowest price possible. We do not take a slice of the profits from your
+        orders, so you and your neighborhood businesses can save money.
       </Typography>
       <Button
         color="secondary"
