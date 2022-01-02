@@ -29,6 +29,7 @@ function Login({ setForm, email, setEmail }) {
     getValues,
     setValue,
     setFocus,
+    clearErrors,
     formState: { errors },
   } = useForm({ defaultValues: { email } })
 
@@ -53,6 +54,7 @@ function Login({ setForm, email, setEmail }) {
 
   const onSubmit = async (values, event) => {
     event.preventDefault()
+    clearErrors()
 
     setLoading(true)
     signInWithEmailAndPassword(auth, values.email, values.password)
