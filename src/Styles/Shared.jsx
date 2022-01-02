@@ -24,6 +24,7 @@ export const useSharedStyles = makeStyles((theme) => ({
   circularProgress: {
     marginLeft: 0,
     marginRight: 0,
+    color: theme.palette.primary.light,
   },
   formlabel: { textAlign: 'center', padding: '10px' },
   dropzone: {
