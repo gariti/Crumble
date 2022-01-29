@@ -4,8 +4,9 @@ import AppBar from '@material-ui/core/AppBar'
 import IconButton from '@material-ui/core/IconButton'
 import Toolbar from '@material-ui/core/Toolbar'
 import { makeStyles } from '@material-ui/core/styles'
+import { ReactComponent as CrumbleIcon } from 'Assets/svg/crumbleLogo.svg'
+// import CrumbleIcon from 'Assets/img/art/bio.png'
 import ProfileMenuButton from 'Components/AppBar/ProfileMenuButton'
-// import { ReactComponent as CrumbleIcon } from 'Assets/svg/masonjar.svg'
 // import MenuIcon from '@material-ui/icons/Menu'
 import 'firebase/auth'
 import 'firebase/firestore'
@@ -35,10 +36,9 @@ function CrumbleAppBar() {
           color="inherit"
           aria-label="menu"
         >
-          {/*
-          // TODO: Fix icon
-          <SvgIcon component={CrumbleIcon} />
-           */}
+          {/* TO DO:
+          Fiz size  */}
+          <CrumbleIcon></CrumbleIcon>
         </IconButton>
 
         <ProfileMenuButton />
