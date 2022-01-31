@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  mainLogo: {
+    height: '2em',
+    width: '2em',
+  },
 }))
 
 function CrumbleAppBar() {
@@ -36,9 +40,7 @@ function CrumbleAppBar() {
           color="inherit"
           aria-label="menu"
         >
-          {/* TO DO:
-          Fiz size  */}
-          <CrumbleIcon></CrumbleIcon>
+          <CrumbleIcon className={classes.mainLogo} />
         </IconButton>
 
         <ProfileMenuButton />
