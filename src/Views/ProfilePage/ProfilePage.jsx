@@ -3,7 +3,7 @@ import CrumbleAppBar from 'Components/AppBar/CrumbleAppBar'
 import { UserContext } from 'Context/UserContext'
 import React, { useContext } from 'react'
 
-import ProfileItemsList from './ProfileItemsList'
+import ProfileGrid from './ProfileGrid'
 
 function ProfilePage() {
   const user = useContext(UserContext)
@@ -11,9 +11,7 @@ function ProfilePage() {
   return user ? (
     <div>
       <CrumbleAppBar />
-      <Container maxWidth="md">
-        <ProfileItemsList />
-      </Container>
+      <ProfileGrid />
     </div>
   ) : null
 }

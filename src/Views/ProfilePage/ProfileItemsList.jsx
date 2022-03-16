@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
   imageList: {
-    width: 500,
-    height: 450,
+    width: 600,
+    height: 500,
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -48,7 +48,7 @@ export default function TitlebarImageList() {
 
   return (
     <div className={classes.root}>
-      <ImageList rowHeight={280} className={classes.imageList}>
+      <ImageList rowHeight={180} className={classes.imageList}>
         <ImageListItem key="Subheader" cols={2} style={{ height: 'auto' }}>
           <ListSubheader component="div">My Items</ListSubheader>
         </ImageListItem>
