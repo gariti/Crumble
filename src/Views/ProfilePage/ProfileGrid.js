@@ -12,10 +12,18 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  display: 'flex',
+  '& > *': {
+    margin: theme.spacing(1),
+  },
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+  },
+  large: {
+    width: theme.spacing(30),
+    height: theme.spacing(30),
   },
 }))
 
@@ -29,16 +37,20 @@ export default function ProfileGrid() {
           <Paper className={classes.paper}>
             <Avatar
               alt="Garrett"
-              src="../../Assets/img/faces/garrettprofile.jpg"
-              sx={{ width: 56, height: 56 }}
+              src="../Assets/img/faces/garrettprofile.jpg"
+              className={classes.large}
             />
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <ProfileInfo></ProfileInfo>
+          <Paper className={classes.paper}>
+            <ProfileInfo></ProfileInfo>
+          </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <ProfileItemsList></ProfileItemsList>
+          <Paper className={classes.paper}>
+            <ProfileItemsList></ProfileItemsList>
+          </Paper>
         </Grid>
       </Grid>
     </div>
