@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { Typography } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
@@ -9,6 +10,7 @@ import React from 'react'
 import { Card, Container } from 'react-bootstrap'
 
 import garrett from '../../Assets/img/faces/garrettprofile.jpg'
+import ProfileBottomNavBar from './ProfileBottomNavBar'
 import ProfileInfo from './ProfileInfo'
 import ProfileItemsList from './ProfileItemsList'
 
@@ -40,15 +42,15 @@ export default function ProfileGrid() {
     <div className={classes.root}>
       <Container>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Card className={classes.card}>
+          <Grid item xs={4}>
+            <Container className={classes.card}>
               <Avatar alt="Garrett" src={garrett} className={classes.large} />
-            </Card>
+            </Container>
           </Grid>
-          <Grid item xs={6}>
-            <Card className={classes.card}>
+          <Grid item xs={4}>
+            <Container className={classes.card}>
               <Typography className={classes.info} variant="h5" gutterBottom>
-                Name:
+                Jenny Kunte
               </Typography>
               <Typography
                 className={classes.info}
@@ -85,12 +87,19 @@ export default function ProfileGrid() {
               >
                 Food:
               </Typography>
-            </Card>
+            </Container>
           </Grid>
+          <Grid item xs={4}>
+            <Container className={classes.card}>
+              <Button variant="outlined">Edit Profile</Button>
+            </Container>
+          </Grid>
+        </Grid>
 
-          <Grid item xs={12} sm={6}>
-            <ProfileItemsList></ProfileItemsList>
-          </Grid>
+        <Grid item xs={12}>
+          <Container className={classes.card}>
+            <ProfileBottomNavBar></ProfileBottomNavBar>
+          </Container>
         </Grid>
       </Container>
     </div>

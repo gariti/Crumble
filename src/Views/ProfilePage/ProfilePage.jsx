@@ -1,4 +1,3 @@
-import Container from '@material-ui/core/Container'
 import CrumbleAppBar from 'Components/AppBar/CrumbleAppBar'
 import { UserContext } from 'Context/UserContext'
 import React, { useContext } from 'react'
