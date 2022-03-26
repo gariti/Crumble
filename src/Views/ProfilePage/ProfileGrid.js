@@ -1,10 +1,14 @@
 // @ts-nocheck
+import { Typography } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
+import CustomAvatar from 'Components/AppBar/CustomAvatar'
 import React from 'react'
+import { Card, Container } from 'react-bootstrap'
 
+import garrett from '../../Assets/img/faces/garrettprofile.jpg'
 import ProfileInfo from './ProfileInfo'
 import ProfileItemsList from './ProfileItemsList'
 
@@ -16,14 +20,16 @@ const useStyles = makeStyles((theme) => ({
   '& > *': {
     margin: theme.spacing(1),
   },
-  paper: {
+  card: {
     padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
   },
   large: {
     width: theme.spacing(30),
     height: theme.spacing(30),
+    border: 'solid',
+  },
+  info: {
+    padding: '2px',
   },
 }))
 
@@ -32,27 +38,61 @@ export default function ProfileGrid() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Avatar
-              alt="Garrett"
-              src="../Assets/img/faces/garrettprofile.jpg"
-              className={classes.large}
-            />
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
-            <ProfileInfo></ProfileInfo>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
+      <Container>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Card className={classes.card}>
+              <Avatar alt="Garrett" src={garrett} className={classes.large} />
+            </Card>
+          </Grid>
+          <Grid item xs={6}>
+            <Card className={classes.card}>
+              <Typography className={classes.info} variant="h5" gutterBottom>
+                Name:
+              </Typography>
+              <Typography
+                className={classes.info}
+                variant="subtitle1"
+                gutterBottom
+              >
+                Email:
+              </Typography>
+              <Typography
+                className={classes.info}
+                variant="subtitle1"
+                gutterBottom
+              >
+                About:
+              </Typography>
+              <Typography
+                className={classes.info}
+                variant="subtitle1"
+                gutterBottom
+              >
+                Location:
+              </Typography>
+              <Typography
+                className={classes.info}
+                variant="subtitle1"
+                gutterBottom
+              >
+                Phone:
+              </Typography>
+              <Typography
+                className={classes.info}
+                variant="subtitle1"
+                gutterBottom
+              >
+                Food:
+              </Typography>
+            </Card>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
             <ProfileItemsList></ProfileItemsList>
-          </Paper>
+          </Grid>
         </Grid>
-      </Grid>
+      </Container>
     </div>
   )
 }
