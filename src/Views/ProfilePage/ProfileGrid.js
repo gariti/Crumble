@@ -101,6 +101,11 @@ export default function ProfileGrid() {
             <ProfileBottomNavBar></ProfileBottomNavBar>
           </Container>
         </Grid>
+        <Grid item xs={12}>
+          <Container className={classes.card}>
+            <ProfileItemsList />
+          </Container>
+        </Grid>
       </Container>
     </div>
   )

@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
   imageList: {
-    width: 600,
-    height: 500,
+    width: 'auto',
+    height: 'auto',
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -48,8 +48,8 @@ export default function TitlebarImageList() {
 
   return (
     <div className={classes.root}>
-      <ImageList rowHeight={180} className={classes.imageList}>
-        <ImageListItem key="Subheader" cols={2} style={{ height: 'auto' }}>
+      <ImageList rowHeight={260} className={classes.imageList}>
+        <ImageListItem key="Subheader" cols={2} style={{ height: 260 }}>
           <ListSubheader component="div">My Items</ListSubheader>
         </ImageListItem>
         {itemData.map((item) => (

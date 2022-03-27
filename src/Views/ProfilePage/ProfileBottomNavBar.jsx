@@ -10,7 +10,8 @@ import React from 'react'
 
 const useStyles = makeStyles({
   root: {
-    width: 650,
+    width: 'auto',
+    maxWidth: 1000,
   },
 })
 
