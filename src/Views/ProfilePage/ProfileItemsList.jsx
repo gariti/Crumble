@@ -49,9 +49,11 @@ export default function TitlebarImageList() {
   return (
     <div className={classes.root}>
       <ImageList rowHeight={260} className={classes.imageList}>
-        <ImageListItem key="Subheader" cols={2} style={{ height: 260 }}>
-          <ListSubheader component="div">My Items</ListSubheader>
-        </ImageListItem>
+        <ImageListItem
+          key="Subheader"
+          cols={2}
+          style={{ height: 60 }}
+        ></ImageListItem>
         {itemData.map((item) => (
           <ImageListItem key={item.img}>
             <img src={item.img} alt={item.title} />

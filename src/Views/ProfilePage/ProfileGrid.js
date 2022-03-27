@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
 import CustomAvatar from 'Components/AppBar/CustomAvatar'
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, Container } from 'react-bootstrap'
 
 import garrett from '../../Assets/img/faces/garrettprofile.jpg'
@@ -37,6 +37,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProfileGrid() {
   const classes = useStyles()
+
+  const [selection, setSelection] = useState(0)
 
   return (
     <div className={classes.root}>
@@ -98,12 +100,15 @@ export default function ProfileGrid() {
 
         <Grid item xs={12}>
           <Container className={classes.card}>
-            <ProfileBottomNavBar></ProfileBottomNavBar>
+            <ProfileBottomNavBar
+              selection={selection}
+              setSelection={setSelection}
+            ></ProfileBottomNavBar>
           </Container>
         </Grid>
         <Grid item xs={12}>
           <Container className={classes.card}>
-            <ProfileItemsList />
+            {selection === 1 && <ProfileItemsList />}
           </Container>
         </Grid>
       </Container>

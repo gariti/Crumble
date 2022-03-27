@@ -15,15 +15,14 @@ const useStyles = makeStyles({
   },
 })
 
-export default function ProfileBottomNavBar() {
+export default function ProfileBottomNavBar({ selection, setSelection }) {
   const classes = useStyles()
-  const [value, setValue] = React.useState(0)
 
   return (
     <BottomNavigation
-      value={value}
+      value={selection}
       onChange={(event, newValue) => {
-        setValue(newValue)
+        setSelection(newValue)
       }}
       showLabels
       className={classes.root}
