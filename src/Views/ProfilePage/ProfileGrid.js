@@ -3,13 +3,12 @@ import { Typography } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
-import CustomAvatar from 'Components/AppBar/CustomAvatar'
-import React, { useState } from 'react'
-import { Card, Container } from 'react-bootstrap'
+import { getUserPhotoUrl } from 'Cloud/firestore'
+import { UserContext } from 'Context/UserContext'
+import React, { useEffect, useState, useContext } from 'react'
+import { Container } from 'react-bootstrap'
 
-import garrett from '../../Assets/img/faces/garrettprofile.jpg'
 import ProfileBottomNavBar from './ProfileBottomNavBar'
 import ProfileInfo from './ProfileInfo'
 import ProfileItemsList from './ProfileItemsList'
@@ -39,6 +38,16 @@ export default function ProfileGrid() {
   const classes = useStyles()
 
   const [selection, setSelection] = useState(0)
+  const [photo, setPhoto] = useState(null)
+  const user = useContext(UserContext)
+
+  useEffect(() => {
+    if (!photo) {
+      getUserPhotoUrl(user.uid).then((p) => {
+        setPhoto(p)
+      })
+    }
+  }, [])
 
   return (
     <div className={classes.root}>
@@ -46,7 +55,7 @@ export default function ProfileGrid() {
         <Grid container spacing={2}>
           <Grid item xs={4}>
             <Container className={classes.card}>
-              <Avatar alt="Garrett" src={garrett} className={classes.large} />
+              <Avatar alt="Garrett" src={photo} className={classes.large} />
             </Container>
           </Grid>
           <Grid item xs={4}>
