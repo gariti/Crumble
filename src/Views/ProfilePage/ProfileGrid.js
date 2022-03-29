@@ -3,6 +3,7 @@ import { Typography } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
 import { getUserPhotoUrl } from 'Cloud/firestore'
 import { UserContext } from 'Context/UserContext'
@@ -53,53 +54,12 @@ export default function ProfileGrid() {
     <div className={classes.root}>
       <Container>
         <Grid container spacing={2}>
-          <Grid item xs={4}>
+          <Grid item xs={8}>
             <Container className={classes.card}>
               <Avatar alt="Garrett" src={photo} className={classes.large} />
             </Container>
           </Grid>
-          <Grid item xs={4}>
-            <Container className={classes.card}>
-              <Typography className={classes.info} variant="h5" gutterBottom>
-                Jenny Kunte
-              </Typography>
-              <Typography
-                className={classes.info}
-                variant="subtitle1"
-                gutterBottom
-              >
-                Email:
-              </Typography>
-              <Typography
-                className={classes.info}
-                variant="subtitle1"
-                gutterBottom
-              >
-                About:
-              </Typography>
-              <Typography
-                className={classes.info}
-                variant="subtitle1"
-                gutterBottom
-              >
-                Location:
-              </Typography>
-              <Typography
-                className={classes.info}
-                variant="subtitle1"
-                gutterBottom
-              >
-                Phone:
-              </Typography>
-              <Typography
-                className={classes.info}
-                variant="subtitle1"
-                gutterBottom
-              >
-                Food:
-              </Typography>
-            </Container>
-          </Grid>
+
           <Grid item xs={4}>
             <Container className={classes.card}>
               <Button variant="outlined">Edit Profile</Button>
@@ -113,6 +73,11 @@ export default function ProfileGrid() {
               selection={selection}
               setSelection={setSelection}
             ></ProfileBottomNavBar>
+          </Container>
+        </Grid>
+        <Grid item xs={12}>
+          <Container className={classes.card}>
+            {selection === 0 && <ProfileInfo />}
           </Container>
         </Grid>
         <Grid item xs={12}>
