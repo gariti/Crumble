@@ -53,19 +53,29 @@ export default function ProfileGrid() {
   return (
     <div className={classes.root}>
       <Container>
-        <Grid container spacing={2}>
-          <Grid item xs={8}>
-            <Container className={classes.card}>
-              <Avatar alt="Garrett" src={photo} className={classes.large} />
-            </Container>
-          </Grid>
-
-          <Grid item xs={4}>
-            <Container className={classes.card}>
-              <Button variant="outlined">Edit Profile</Button>
-            </Container>
-          </Grid>
-        </Grid>
+        <Container className={classes.card}>
+          <Paper>
+            <Grid container spacing={3}>
+              <Grid item xs={4}>
+                <Container className={classes.card}>
+                  <Avatar alt="Garrett" src={photo} className={classes.large} />
+                </Container>
+              </Grid>
+              <Grid item xs={3}>
+                <Container className={classes.card}>
+                  <h5>
+                    {user.data.firstName} {user.data.lastName}
+                  </h5>
+                </Container>
+              </Grid>
+              <Grid item xs={3}>
+                <Container className={classes.card}>
+                  <Button variant="outlined">Edit Profile</Button>
+                </Container>
+              </Grid>
+            </Grid>
+          </Paper>
+        </Container>
 
         <Grid item xs={12}>
           <Container className={classes.card}>
