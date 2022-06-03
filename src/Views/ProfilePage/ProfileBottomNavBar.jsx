@@ -29,7 +29,6 @@ export default function ProfileBottomNavBar({ selection, setSelection }) {
     >
       <BottomNavigationAction label="About" icon={<InfoOutlinedIcon />} />
       <BottomNavigationAction label="Post" icon={<AppsRoundedIcon />} />
-      <BottomNavigationAction label="Nearby" icon={<RoomOutlinedIcon />} />
       <BottomNavigationAction label="Favorite" icon={<FavoriteBorderIcon />} />
       <BottomNavigationAction label="Saved" icon={<BookmarkBorderIcon />} />
     </BottomNavigation>

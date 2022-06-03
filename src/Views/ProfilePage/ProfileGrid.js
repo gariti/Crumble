@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { getUserPhotoUrl } from 'Cloud/firestore'
 import { UserContext } from 'Context/UserContext'
 import React, { useEffect, useState, useContext } from 'react'
-import { Container } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 
 import ProfileBottomNavBar from './ProfileBottomNavBar'
 import ProfileInfo from './ProfileInfo'
@@ -24,14 +24,16 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     padding: theme.spacing(2),
+    height: '200px',
+    width: '50px',
   },
   large: {
-    width: theme.spacing(30),
-    height: theme.spacing(30),
+    width: '100%',
+    height: '100%',
     border: 'solid',
   },
   info: {
-    padding: '2px',
+    padding: '3px',
   },
 }))
 
@@ -56,12 +58,12 @@ export default function ProfileGrid() {
         <Container className={classes.card}>
           <Paper>
             <Grid container spacing={3}>
-              <Grid item xs={4}>
+              <Grid item xs={3} sm={3}>
                 <Container className={classes.card}>
                   <Avatar alt="Garrett" src={photo} className={classes.large} />
                 </Container>
               </Grid>
-              <Grid item xs={3}>
+              <Grid item xs={4} sm={3}>
                 <Container className={classes.card}>
                   <h5>
                     {user.data.firstName} {user.data.lastName}
