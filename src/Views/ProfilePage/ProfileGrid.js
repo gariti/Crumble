@@ -24,12 +24,12 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     padding: theme.spacing(2),
-    height: '200px',
-    width: '50px',
+    flexGrow: 1,
   },
   large: {
     width: '100%',
     height: '100%',
+    flexGrow: 1,
     border: 'solid',
   },
   info: {
